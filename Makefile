@@ -1,5 +1,5 @@
 # Usually, only these lines need changing
-TEXFILE= ./doc/report
+TEXFILE= report
 RDIR= ./R
 FIGDIR= ./figs
 
