@@ -1,6 +1,6 @@
 # Usually, only these lines need changing
-TEXFILE= paper
-RDIR= .
+TEXFILE= ./doc/report
+RDIR= ./R
 FIGDIR= ./figs
 
 # list R files
