@@ -1,3 +1,3 @@
-save.image("functions.RData")
+save.image("R/functions.RData")
 
 

@@ -1,6 +1,6 @@
-d = read.csv("../data/mnfb.csv")
+d = read.csv("data/mnfb.csv")
 
 rm(d)
 
-save.image("sites.RData")
+save.image("R/sites.RData")
 
