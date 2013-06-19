@@ -18,7 +18,7 @@ all: $(TEXFILE).pdf $(OUT_FILES) $(CROP_FILES)
 
 # RUN EVERY R FILE
 $(RDIR)/%.Rout: $(RDIR)/%.R $(RDIR)/common/functions.R
-	R CMD BATCH $< 
+	R CMD BATCH $< $<out
 
 # CROP EVERY PDF FIG FILE
 $(FIGDIR)/%.pdfcrop: $(FIGDIR)/%.pdf
