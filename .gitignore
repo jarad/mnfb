@@ -30,3 +30,11 @@
 *.vrb
 *.xdy
 *.tdo
+*.Rapp.history
+*.Rout
+
+figs/*.pdf*
+tables/*.tex
+
+report.pdf
+
