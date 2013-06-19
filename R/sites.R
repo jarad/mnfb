@@ -19,7 +19,7 @@ library(xtable)
 tab = xtable(sites[dups,], 
              caption="Sites with duplicated or missing locations",
              label="tab:duplicated-sites")
-print(tab, file="tables/duplicated-sites.tex", include.rownames=FALSE)
+print(tab, file=tab_dir("duplicated-sites.tex"), include.rownames=FALSE)
 rm(dups)
 
 
@@ -27,13 +27,13 @@ rm(dups)
 tab = xtable(as.data.frame(with(sites, table(forest)), responseName="number of sites"),
              caption="Number of sites in each national forest",
              label="tab:number-of-sites-in-forest")
-print(tab, file="tables/number-of-sites-in-forest.tex", include.rownames=FALSE)
+print(tab, file=tab_dir("number-of-sites-in-forest.tex"), include.rownames=FALSE)
 
 
 # Make a map of the sites
 # This should be replaced with a real map using maptools or something similar
 library(ggplot2)
-pdf("figs/site-map.pdf")
+pdf(fig_dir("site-map.pdf"), width=6, height=4)
 qplot(x=X_COORD, y=Y_COORD, data=sites, color=forest)
 dev.off()
 

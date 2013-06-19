@@ -1,5 +1,9 @@
 \documentclass{article}
 
+\usepackage{graphics}
+
+\graphicspath{{figs/}}
+
 \title{Statistical analysis of Minnesota Forest Breeding Bird data}
 \author{Adam Martin-Schwarze, Jarad Niemi}
 \date{\today}
@@ -19,7 +23,19 @@
 
 \input{data}
 
+\section{Exploratory analysis}
 
+\subsection{Sites}
+
+\input{tables/number-of-sites-in-forest}
+
+\input{tables/duplicated-sites}
+
+\begin{figure}
+\includegraphics{site-map}
+\caption{Sites with duplicated or missing locations.}
+\label{fig:site-map}
+\end{figure}
 
 
 \end{document}
