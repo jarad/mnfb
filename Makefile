@@ -35,7 +35,7 @@ R: $(OUT_FILES)
 
 # View main tex file
 view: $(TEXFILE).pdf
-	evince $(TEXFILE).pdf &
+	open $(TEXFILE).pdf &
 
 # Clean up stray files
 clean:
