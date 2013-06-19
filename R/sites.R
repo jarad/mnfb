@@ -1,8 +1,12 @@
+source("R/common/functions.R")
+
 d = read.csv("data/mnfb.csv")
 
 # Create a smaller data frame with only sites and their locations
 sites = unique(d[,c(1,3:4,6)])
 rm(d)
+names(sites) = gsub(".","",names(sites), fixed=TRUE)
+sites$forest = refactor_forests(sites$forest)
 
 # Checking for duplicate locations
 dups = which( duplicated(sites$X) & duplicated(sites$Y) )
