@@ -19,6 +19,12 @@ tab = xtable(sites[dups,],
 print(tab, file="duplicated-sites.tex", include.rownames=FALSE)
 rm(dups)
 
+# Number of sites per forest
+tab = xtable(as.data.frame(with(sites, table(forest)), responseName="number of sites"),
+             caption="Number of sites in each national forest",
+             label="tab:number-of-sites-in-forest")
+print(tab, file="number-of-sites-in-forest.tex", include.rownames=FALSE)
+
 # Make a map of the sites
 # This should be replaced with a real map using maptools or something similar
 library(ggplot2)
