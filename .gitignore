@@ -31,7 +31,10 @@
 *.xdy
 *.tdo
 *.Rapp.history
+*.Rhistory
 *.Rout
+*.Rproj
+
 
 figs/*.pdf*
 tables/*.tex
