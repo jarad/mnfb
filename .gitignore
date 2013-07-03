@@ -34,6 +34,7 @@
 *.Rhistory
 *.Rout
 *.Rproj
+*.Rproj.user
 
 
 figs/*.pdf*
