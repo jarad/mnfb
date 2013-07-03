@@ -1,0 +1,7 @@
+"code","description"
+0,"No catepillars"
+1,"Small catepillars, no defoliation"
+2,"Defoliation < 25%"
+3,"Defoliation 26-50%"
+4,"Defoliation 51-75%"
+5,"Defoliation > 75%"

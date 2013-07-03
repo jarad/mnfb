@@ -1,0 +1,11 @@
+"stock_dens","descrip","age","dbh"
+1,"Seedling/sapling (16% - 39% stocked)","regeneration","0 - 6"""
+2,"Seedling/sapling (40% - 69% stocked)","regeneration","0 - 6"""
+3,"Seedling/sapling (>70% stocked)","regeneration","0 - 6"""
+4,"Poletimber (16% - 39% stocked)","pole","6 - 9"""
+5,"Poletimber (40% - 69% stocked)","pole","6 - 9"""
+6,"Poletimber (>70% stocked)","pole","6 - 9"""
+7,"Sawtimber (16% - 39% stocked)","saw",">9"""
+8,"Sawtimber (40% - 69% stocked)","saw",">9"""
+9,"Sawtimber (>70% stocked)","saw",">9"""
+0,"Nonstocked (less than 16% stocked)",,

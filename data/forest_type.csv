@@ -1,0 +1,277 @@
+"fstype","fstypename","fine3","newname","age","age_class","age2","upl_low","broad","broad2","con","con_decid_mixed","decid","fine1","fine2"
+"935","Bigtooth aspen","ab pole","Bigtooth aspen","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"936","Bigtooth aspen","ab pole","Bigtooth aspen","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"937","Bigtooth aspen",,"Bigtooth aspen","saw",,,,,"upl decid",,,,,
+"938","Bigtooth aspen",,"Bigtooth aspen","saw",,,,,"upl decid",,,,,
+"939","Bigtooth aspen",,"Bigtooth aspen","saw",,,,,"upl decid",,,,,
+"941","Balsam poplar",,"Balsam poplar","regeneration",,,,,"upl decid regen",,,,,
+"942","Balsam poplar",,"Balsam poplar","regeneration",,,,,"upl decid regen",,,,,
+"943","Balsam poplar",,"Balsam poplar","regeneration",,,,,"upl decid regen",,,,,
+"944","Balsam poplar",,"Balsam poplar","pole",,,,,"upl decid",,,,,
+"945","Balsam poplar",,"Balsam poplar","pole",,,,,"upl decid",,,,,
+"946","Balsam poplar",,"Balsam poplar","pole",,,,,"upl decid",,,,,
+"947","Balsam poplar",,"Balsam poplar","saw",,,,,"upl decid",,,,,
+"948","Balsam poplar",,"Balsam poplar","saw",,,,,"upl decid",,,,,
+"949","Balsam poplar",,"Balsam poplar","saw",,,,,"upl decid",,,,,
+"951","Aspen/White spruce",,"Aspen/White spruce","regeneration",,,,,"not used",,,,,
+"956","Aspen/White spruce","fab pole","Aspen/White spruce","pole","pole","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"011","Jack pine","conif regen","Jack pine","regeneration","not used","not used","not used","not used","not used","not used","not used","not used","not used","not used"
+"012","Jack pine","conif regen","Jack pine","regeneration","not used","not used","not used","not used","not used","not used","not used","not used","not used","not used"
+"013","Jack pine","conif regen","Jack pine","regeneration","not used","not used","not used","not used","not used","not used","not used","not used","not used","not used"
+"016","Jack pine","jp pole","Jack pine","pole","pole","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","jp"
+"017","Jack pine","jp saw","Jack pine","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","jp"
+"018","Jack pine","jp saw","Jack pine","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","jp"
+"019","Jack pine","jp saw","Jack pine","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","jp"
+"021","Red pine","conif regen","Red pine","regeneration","regen","regen","upl","upl conif","upl conif regen","conif","conif","not decid","upl regen","pine regen"
+"022","Red pine","conif regen","Red pine","regeneration","regen","regen","upl","upl conif","upl conif regen","conif","conif","not decid","upl regen","pine regen"
+"023","Red pine","conif regen","Red pine","regeneration","regen","regen","upl","upl conif","upl conif regen","conif","conif","not decid","upl regen","pine regen"
+"024","Red pine","rp pole","Red pine","pole","pole","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","rp"
+"025","Red pine","rp pole","Red pine","pole","pole","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","rp"
+"026","Red pine","rp pole","Red pine","pole","pole","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","rp"
+"027","Red pine","rp saw","Red pine","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","rp"
+"028","Red pine","rp saw","Red pine","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","rp"
+"029","Red pine","rp saw","Red pine","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","rp"
+"036","White pine","wp","White pine/Hardwood","pole","pole","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","wp"
+"038","White pine","wp","White pine/Hardwood","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","wp"
+"039","White pine","wp","White pine/Hardwood","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","wp"
+"056","Hemlock","hem","Hemlock/Mixed","pole","pole","non-regen","upl","upl conif","upl conif","conif","conif","not decid","hem","hem"
+"057","Hemlock","hem","Hemlock/Mixed","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","hem","hem"
+"058","Hemlock","hem","Hemlock/Mixed","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","hem","hem"
+"059","Hemlock","hem","Hemlock/Mixed","saw","saw","non-regen","upl","upl conif","upl conif","conif","conif","not decid","hem","hem"
+"111","Fir/Aspen/PB","conif regen","Fir/Aspen/PB","regeneration","regen","regen","upl","upl mixed","upl conif regen","conif","mixed","decid","upl regen","not used"
+"112","Fir/Aspen/PB","conif regen","Fir/Aspen/PB","regeneration","regen","regen","upl","upl mixed","upl conif regen","conif","mixed","decid","upl regen","not used"
+"113","Fir/Aspen/PB","conif regen","Fir/Aspen/PB","regeneration","regen","regen","upl","upl mixed","upl conif regen","conif","mixed","decid","upl regen","not used"
+"114","Fir/Aspen/PB","fab pole","Fir/Aspen/PB","pole","pole","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"115","Fir/Aspen/PB","fab pole","Fir/Aspen/PB","pole","pole","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"116","Fir/Aspen/PB","fab pole","Fir/Aspen/PB","pole","pole","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"117","Fir/Aspen/PB","fab saw","Fir/Aspen/PB","saw","saw","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"118","Fir/Aspen/PB","fab saw","Fir/Aspen/PB","saw","saw","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"119","Fir/Aspen/PB","fab saw","Fir/Aspen/PB","saw","saw","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"121","Black spruce","not used","Bl. spruce/Tamarack","regeneration","regen","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","not used","not used"
+"122","Black spruce","not used","Bl. spruce/Tamarack","regeneration","regen","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","not used","not used"
+"123","Black spruce","not used","Bl. spruce/Tamarack","regeneration","regen","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","not used","not used"
+"124","Black spruce","bs pole","Bl. spruce/Tamarack","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","bs"
+"125","Black spruce","bs pole","Bl. spruce/Tamarack","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","bs"
+"126","Black spruce","bs pole","Bl. spruce/Tamarack","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","bs"
+"127","Black spruce",,"Bl. spruce/Tamarack","saw",,"non-regen",,,"lowl conif",,,,,
+"128","Black spruce",,"Bl. spruce/Tamarack","saw",,"non-regen",,,"lowl conif",,,,,
+"129","Black spruce",,"Bl. spruce/Tamarack","saw",,"non-regen",,,"lowl conif",,,,,
+"141","Cedar",,"Mixed swamp conifer","regeneration",,,,,"not used",,,,,
+"142","Cedar",,"Mixed swamp conifer","regeneration",,,,,"not used",,,,,
+"143","Cedar",,"Mixed swamp conifer","regeneration",,,,,"not used",,,,,
+"144","Cedar","msc pole","Mixed swamp conifer","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"145","Cedar","msc pole","Mixed swamp conifer","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"146","Cedar","msc pole","Mixed swamp conifer","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"147","Cedar","msc saw","Mixed swamp conifer","saw","saw","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"148","Cedar","msc saw","Mixed swamp conifer","saw","saw","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"149","Cedar","msc saw","Mixed swamp conifer","saw","saw","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"151","Tamarack",,"Tamarack/Bl. spruce","regeneration",,"non-regen",,,"not used",,,,,
+"152","Tamarack",,"Tamarack/Bl. spruce","regeneration",,"non-regen",,,"not used",,,,,
+"153","Tamarack",,"Tamarack/Bl. spruce","regeneration",,"non-regen",,,"not used",,,,,
+"154","Tamarack","msc pole","Tamarack/Bl. spruce","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","bs"
+"155","Tamarack","msc pole","Tamarack/Bl. spruce","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","bs"
+"156","Tamarack","msc pole","Tamarack/Bl. spruce","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","bs"
+"157","Tamarack",,"Tamarack/Bl. spruce","saw",,"non-regen",,,"lowl conif",,,,,
+"158","Tamarack",,"Tamarack/Bl. spruce","saw",,"non-regen",,,"lowl conif",,,,,
+"159","Tamarack",,"Tamarack/Bl. spruce","saw",,"non-regen",,,"lowl conif",,,,,
+"161","White spruce/Fir","conif regen","White spruce/Fir","regeneration","regen","regen","upl","upl conif","upl conif regen","conif","conif","not decid","upl regen","not used"
+"162","White spruce/Fir","conif regen","White spruce/Fir","regeneration","regen","regen","upl","upl conif","upl conif regen","conif","conif","not decid","upl regen","not used"
+"163","White spruce/Fir","conif regen","White spruce/Fir","regeneration","regen","regen","upl","upl conif","upl conif regen","conif","conif","not decid","upl regen","not used"
+"164","White spruce/Fir",,"White spruce/Fir","pole",,,,,"upl conif",,,,,
+"165","White spruce/Fir",,"White spruce/Fir","pole",,,,,"upl conif",,,,,
+"717","Ash/Elm/Red maple","aem saw","Ash/Elm/Red maple","saw","saw","non-regen","low","lowl decid","lowl decid","not conif","decid","decid","lowl decid","aem"
+"718","Ash/Elm/Red maple","aem saw","Ash/Elm/Red maple","saw","saw","non-regen","low","lowl decid","lowl decid","not conif","decid","decid","lowl decid","aem"
+"719","Ash/Elm/Red maple","aem saw","Ash/Elm/Red maple","saw","saw","non-regen","low","lowl decid","lowl decid","not conif","decid","decid","lowl decid","aem"
+"811","Maple/Beech",,"Maple/Beech/Mixed","regeneration",,,,,"upl decid regen",,,,,
+"812","Maple/Beech",,"Maple/Beech/Mixed","regeneration",,,,,"upl decid regen",,,,,
+"813","Maple/Beech",,"Maple/Beech/Mixed","regeneration",,,,,"upl decid regen",,,,,
+"814","Maple/Beech",,"Maple/Beech/Mixed","pole",,,,,"upl decid",,,,,
+"815","Maple/Beech",,"Maple/Beech/Mixed","pole",,,,,"upl decid",,,,,
+"816","Maple/Beech",,"Maple/Beech/Mixed","pole",,,,,"upl decid",,,,,
+"817","Maple/Beech","maple saw","Maple/Beech/Mixed","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"818","Maple/Beech","maple saw","Maple/Beech/Mixed","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"819","Maple/Beech","maple saw","Maple/Beech/Mixed","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"821","Sugar maple/Basswood",,"Sugar maple/Basswood","regeneration",,,,,"upl decid regen",,,,,
+"822","Sugar maple/Basswood",,"Sugar maple/Basswood","regeneration",,,,,"upl decid regen",,,,,
+"823","Sugar maple/Basswood",,"Sugar maple/Basswood","regeneration",,,,,"upl decid regen",,,,,
+"824","Sugar maple/Basswood","maple pole","Sugar maple/Basswood","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"825","Sugar maple/Basswood","maple pole","Sugar maple/Basswood","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"826","Sugar maple/Basswood","maple pole","Sugar maple/Basswood","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"827","Sugar maple/Basswood","maple saw","Sugar maple/Basswood","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"828","Sugar maple/Basswood","maple saw","Sugar maple/Basswood","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"829","Sugar maple/Basswood","maple saw","Sugar maple/Basswood","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"851","Sugar maple",,"Sugar maple","regeneration",,,,,"upl decid regen",,,,,
+"852","Sugar maple",,"Sugar maple","regeneration",,,,,"upl decid regen",,,,,
+"853","Sugar maple",,"Sugar maple","regeneration",,,,,"upl decid regen",,,,,
+"854","Sugar maple","maple pole","Sugar maple","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"855","Sugar maple","maple pole","Sugar maple","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"856","Sugar maple","maple pole","Sugar maple","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"906","Aspen/Paper Birch","ab pole","Aspen/Paper Birch","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"907","Aspen/Paper Birch","ab saw","Aspen/Paper Birch","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"908","Aspen/Paper Birch","ab saw","Aspen/Paper Birch","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"909","Aspen/Paper Birch","ab saw","Aspen/Paper Birch","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"911","Quaking aspen","decid regen","Aspen","regeneration","regen","regen","upl","upl decid","upl decid regen","not conif","decid","decid","upl regen","ab"
+"912","Quaking aspen","decid regen","Aspen","regeneration","regen","regen","upl","upl decid","upl decid regen","not conif","decid","decid","upl regen","ab"
+"913","Quaking aspen","decid regen","Aspen","regeneration","regen","regen","upl","upl decid","upl decid regen","not conif","decid","decid","upl regen","ab"
+"914","Quaking aspen","ab pole","Aspen","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"915","Quaking aspen","ab pole","Aspen","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"916","Quaking aspen","ab pole","Aspen","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"917","Quaking aspen","ab saw","Aspen","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"918","Quaking aspen","ab saw","Aspen","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"919","Quaking aspen","ab saw","Aspen","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"921","Paper birch",,"Aspen/Birch","regeneration",,,,,"upl decid regen",,,,,
+"922","Paper birch",,"Aspen/Birch","regeneration",,,,,"upl decid regen",,,,,
+"923","Paper birch",,"Aspen/Birch","regeneration",,,,,"upl decid regen",,,,,
+"924","Paper birch","ab pole","Aspen/Birch","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"925","Paper birch","ab pole","Aspen/Birch","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"926","Paper birch","ab pole","Aspen/Birch","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"927","Paper birch","ab saw","Aspen/Birch","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"928","Paper birch","ab saw","Aspen/Birch","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"929","Paper birch","ab saw","Aspen/Birch","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"931","Bigtooth aspen",,"Bigtooth aspen","regeneration",,,,,"upl decid regen",,,,,
+"932","Bigtooth aspen",,"Bigtooth aspen","regeneration",,,,,"upl decid regen",,,,,
+"933","Bigtooth aspen",,"Bigtooth aspen","regeneration",,,,,"upl decid regen",,,,,
+"934","Bigtooth aspen","ab pole","Bigtooth aspen","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"166","White spruce/Fir",,"White spruce/Fir","pole",,,,,"upl conif",,,,,
+"167","White spruce/Fir",,"White spruce/Fir","saw",,,,,"upl conif",,,,,
+"168","White spruce/Fir",,"White spruce/Fir","saw",,,,,"upl conif",,,,,
+"169","White spruce/Fir",,"White spruce/Fir","saw",,,,,"upl conif",,,,,
+"171","Upland black spruce","conif regen","Upland black spruce","regeneration","regen","regen","low","upl conif","upl conif regen","conif","conif","not decid","upl regen","not used"
+"172","Upland black spruce","conif regen","Upland black spruce","regeneration","regen","regen","low","upl conif","upl conif regen","conif","conif","not decid","upl regen","not used"
+"173","Upland black spruce","conif regen","Upland black spruce","regeneration","regen","regen","low","upl conif","upl conif regen","conif","conif","not decid","upl regen","not used"
+"174","Upland black spruce",,"Upland black spruce","pole",,,,,"upl conif",,,,,
+"175","Upland black spruce",,"Upland black spruce","pole",,,,,"upl conif",,,,,
+"176","Upland black spruce",,"Upland black spruce","pole",,,,,"upl conif",,,,,
+"177","Upland black spruce",,"Upland black spruce","saw",,,,,"upl conif",,,,,
+"178","Upland black spruce",,"Upland black spruce","saw",,,,,"upl conif",,,,,
+"179","Upland black spruce",,"Upland black spruce","saw",,,,,"upl conif",,,,,
+"181","Mixed swamp conifer",,"Mixed swamp conifer","regeneration",,,,,"not used",,,,,
+"182","Mixed swamp conifer",,"Mixed swamp conifer","regeneration",,,,,"not used",,,,,
+"183","Mixed swamp conifer",,"Mixed swamp conifer","regeneration",,,,,"not used",,,,,
+"184","Mixed swamp conifer","msc pole","Mixed swamp conifer","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"185","Mixed swamp conifer","msc pole","Mixed swamp conifer","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"186","Mixed swamp conifer","msc pole","Mixed swamp conifer","pole","pole","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"187","Mixed swamp conifer","msc saw","Mixed swamp conifer","saw","saw","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"188","Mixed swamp conifer","msc saw","Mixed swamp conifer","saw","saw","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"189","Mixed swamp conifer","msc saw","Mixed swamp conifer","saw","saw","non-regen","low","lowl conif","lowl conif","conif","conif","not decid","lowl conif","msc"
+"191","Cedar/Aspen/PB",,"Cedar/Aspen/PB","regeneration",,,,,"not used",,,,,
+"521","Oak",,"Oak","regeneration",,,,,"upl decid regen",,,,,
+"522","Oak",,"Oak","regeneration",,,,,"upl decid regen",,,,,
+"523","Oak",,"Oak","regeneration",,,,,"upl decid regen",,,,,
+"524","Oak",,"Oak","pole",,,,,"upl decid",,,,,
+"525","Oak",,"Oak","pole",,,,,"upl decid",,,,,
+"526","Oak",,"Oak","pole",,,,,"upl decid",,,,,
+"527","Oak",,"Oak","saw",,,,,"upl decid",,,,,
+"528","Oak",,"Oak","saw",,,,,"upl decid",,,,,
+"529","Oak",,"Oak","saw",,,,,"upl decid",,,,,
+"541","Burr oak",,"Burr oak","regeneration",,,,,"upl decid regen",,,,,
+"542","Burr oak",,"Burr oak","regeneration",,,,,"upl decid regen",,,,,
+"543","Burr oak",,"Burr oak","regeneration",,,,,"upl decid regen",,,,,
+"544","Burr oak",,"Burr oak","pole",,,,,"upl decid",,,,,
+"545","Burr oak",,"Burr oak","pole",,,,,"upl decid",,,,,
+"546","Burr oak",,"Burr oak","pole",,,,,"upl decid",,,,,
+"547","Burr oak",,"Burr oak","saw",,,,,"upl decid",,,,,
+"548","Burr oak",,"Burr oak","saw",,,,,"upl decid",,,,,
+"549","Burr oak",,"Burr oak","saw",,,,,"upl decid",,,,,
+"551","Northern red oak",,"N. red oak mixed","regeneration",,,,,"upl decid regen",,,,,
+"552","Northern red oak",,"N. red oak mixed","regeneration",,,,,"upl decid regen",,,,,
+"553","Northern red oak",,"N. red oak mixed","regeneration",,,,,"upl decid regen",,,,,
+"554","Northern red oak","oak pole","N. red oak mixed","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","oak","oak"
+"555","Northern red oak","oak pole","N. red oak mixed","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","oak","oak"
+"556","Northern red oak","oak pole","N. red oak mixed","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","oak","oak"
+"557","Northern red oak","oak saw","N. red oak mixed","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","oak","oak"
+"558","Northern red oak","oak saw","N. red oak mixed","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","oak","oak"
+"559","Northern red oak","oak saw","N. red oak mixed","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","oak","oak"
+"621","Sedge",,"Sedge",,,,,,"not used",,,,,
+"622","Sedge",,"Sedge",,,,,,"not used",,,,,
+"623","Sedge",,"Sedge",,,,,,"not used",,,,,
+"626","Sedge",,"Sedge",,,,,,"not used",,,,,
+"661","Alder","not used","Alder","regeneration","regen","regen","low","Not used","not used","not conif","decid","decid","not used","not used"
+"662","Alder","not used","Alder","regeneration","regen","regen","low","Not used","not used","not conif","decid","decid","not used","not used"
+"663","Alder","not used","Alder","regeneration","regen","regen","low","Not used","not used","not conif","decid","decid","not used","not used"
+"664","Alder","not used","Alder","pole","pole","non-regen","low","Not used","not used","not conif","decid","decid","not used","not used"
+"666","Alder","not used","Alder","pole","pole","non-regen","low","Not used","not used","not conif","decid","decid","not used","not used"
+"681","Bog",,"Bog",,,,,,"not used",,,,,
+"711","Ash/Elm/Red maple",,"Ash/Elm/Red maple","regeneration",,,,,"not used",,,,,
+"712","Ash/Elm/Red maple",,"Ash/Elm/Red maple","regeneration",,,,,"not used",,,,,
+"713","Ash/Elm/Red maple",,"Ash/Elm/Red maple","regeneration",,,,,"not used",,,,,
+"714","Ash/Elm/Red maple","aem pole","Ash/Elm/Red maple","pole","pole","non-regen","low","lowl decid","lowl decid","not conif","decid","decid","lowl decid","aem"
+"715","Ash/Elm/Red maple","aem pole","Ash/Elm/Red maple","pole","pole","non-regen","low","lowl decid","lowl decid","not conif","decid","decid","lowl decid","aem"
+"716","Ash/Elm/Red maple","aem pole","Ash/Elm/Red maple","pole","pole","non-regen","low","lowl decid","lowl decid","not conif","decid","decid","lowl decid","aem"
+"857","Sugar maple","maple saw","Sugar maple","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"858","Sugar maple","maple saw","Sugar maple","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"859","Sugar maple","maple saw","Sugar maple","saw","saw","non-regen","upl","upl decid","upl decid","not conif","decid","decid","maple","maple"
+"901","Aspen/Paper Birch",,"Aspen/Paper Birch","regeneration",,,,,"upl decid regen",,,,,
+"902","Aspen/Paper Birch",,"Aspen/Paper Birch","regeneration",,,,,"upl decid regen",,,,,
+"903","Aspen/Paper Birch",,"Aspen/Paper Birch","regeneration",,,,,"upl decid regen",,,,,
+"904","Aspen/Paper Birch","ab pole","Aspen/Paper Birch","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"905","Aspen/Paper Birch","ab pole","Aspen/Paper Birch","pole","pole","non-regen","upl","upl decid","upl decid","not conif","decid","decid","ab","ab"
+"957","Aspen/White spruce","fab saw","Aspen/White spruce","saw","saw","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"958","Aspen/White spruce","fab saw","Aspen/White spruce","saw","saw","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"959","Aspen/White spruce","fab saw","Aspen/White spruce","saw","saw","non-regen","upl","upl mixed","upl mixed","conif","mixed","decid","fab","fab"
+"970","Lowland brush",,"Lowland brush",,,,,,"not used",,,,,
+"971","Lowland brush",,"Lowland brush",,,,,,"not used",,,,,
+"980","Upland brush",,"Upland brush",,,,,,"not used",,,,,
+"981","Upland brush",,"Upland brush",,,,,,"not used",,,,,
+"990","Open",,"Open",,,,,,"not used",,,,,
+"991","Open",,"Open",,,,,,"not used",,,,,
+"000","Not Used",,"Not Used",,,,,,"not used",,,,,
+"620","Sedge",,"Sedge",,,,,,"not used",,,,,
+"CSA941","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA951","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA952","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA953","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA954","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA955","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA961","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA962","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA964","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA972","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA973","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA982","Lowland hardwoods",,"Lowland hardwoods",,,,,,"lowl decid",,,,,
+"CSA2042","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2051","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2053","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2054","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2056","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2057","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2061","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2062","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2063","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2064","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2073","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2074","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA2075","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"CSA3000","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3042","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3043","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3044","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3051","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3052","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3053","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3054","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3055","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3056","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3057","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3062","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3063","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3064","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3065","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3072","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA3074","Oak",,"Oak",,,,,,"upl decid",,,,,
+"CSA4023","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4034","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4042","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4047","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4052","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4053","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4054","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4055","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4061","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4065","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4067","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4072","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA4073","Central hardwoods",,"Central hardwoods",,,,,,"upl decid",,,,,
+"CSA2045","Northern hardwoods",,"Northern hardwoods",,,,,,"upl decid",,,,,
+"014","Jack pine","jp pole","Jack pine","pole","pole","non-regen","upl","upl conif","upl conif","conif","conif","not decid","pine","jp"
+"0","Not Used",,"Not Used",,,,,,"not used",,,,,
