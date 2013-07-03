@@ -5,7 +5,7 @@ require(plyr)
 source("R/common/functions.R")
 
 # Read in data; note the NA values
-birds <- read.csv("c:/Users/Adam/mnfb/data/mnfb.csv", sep=",", na.strings=c(-99, "", "NA"))
+birds <- read.csv("data/mnfb.csv", sep=",", na.strings=c(-99, "", "NA"))
 # birds <- read.csv("data/mnfb.csv", sep=",")
 
 names(birds) <- str_replace_all(names(birds), "[[:punct:]]", "")    # Clean up column names
