@@ -26,7 +26,9 @@ $(FIGDIR)/%.pdfcrop: $(FIGDIR)/%.pdf
 
 # Compile main tex file
 $(TEXFILE).pdf: $(TEXFILE).tex $(OUT_FILES) $(CROP_FILES)
-	latexmk -pdf -quiet $(TEXFILE)
+	pdflatex $(TEXFILE)
+	pdflatex $(TEXFILE)
+	#latexmk -pdf -quiet $(TEXFILE)
 #	rubber --pdf $(TEXFILE)
 #	rubber-info $(TEXFILE)
 	
