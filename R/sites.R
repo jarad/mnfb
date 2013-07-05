@@ -3,38 +3,38 @@
 
 source("R/common/functions.R")
 
-d = read.csv("data/mnfb.csv")
+d = read.csv("data/location.csv")
+d$forest = factor(d$forest)
 
-# Create a smaller data frame with only sites and their locations
-sites = unique(d[,c(1,3:4,6)])
-rm(d)
-names(sites) = gsub(".","",names(sites), fixed=TRUE)
-sites$forest = refactor_forests(sites$forest)
+# Only use Chequamegon, Chippewa, and Superior national forests
+d = d[d$forest %in% c(9020, 9030, 9090),]
+
 
 # Checking for duplicate locations
-dups = which( duplicated(sites$X) & duplicated(sites$Y) )
-sites[dups,]
+dups = d[which( duplicated(d$X) & duplicated(d$Y) ),]
+dups = dups[order(dups$forest, dups$site),]
+
 
 library(xtable)
-tab = xtable(sites[dups,], 
+tab = xtable(dups[,c("forest","site","X_COORD","Y_COORD")], 
              caption="Sites with duplicated or missing locations",
              label="tab:duplicated-sites")
-print(tab, file=tab_dir("duplicated-sites.tex"), include.rownames=FALSE)
+print(tab, file=tab_dir("site-duplicated.tex"), include.rownames=FALSE)
 rm(dups)
 
 
 # Number of sites per forest
-tab = xtable(as.data.frame(with(sites, table(forest)), responseName="number of sites"),
+tab = xtable(as.data.frame(with(d, table(forest)), responseName="number of sites"),
              caption="Number of sites in each national forest",
              label="tab:number-of-sites-in-forest")
-print(tab, file=tab_dir("number-of-sites-in-forest.tex"), include.rownames=FALSE)
+print(tab, file=tab_dir("site-number-per-forest.tex"), include.rownames=FALSE)
 
 
 # Make a map of the sites
 # This should be replaced with a real map using maptools or something similar
 library(ggplot2)
 pdf(fig_dir("site-map.pdf"), width=6, height=4)
-qplot(x=X_COORD, y=Y_COORD, data=sites, color=forest)
+qplot(x=X_COORD, y=Y_COORD, data=d, color=forest)
 dev.off()
 
 
