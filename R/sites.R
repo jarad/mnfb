@@ -38,5 +38,5 @@ qplot(x=X_COORD, y=Y_COORD, data=sites, color=forest)
 dev.off()
 
 
-q("no")
+quit(ifelse(interactive(), "ask", "no"))
 
