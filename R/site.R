@@ -52,9 +52,6 @@ f = join(f, d[,c("site","forest")], by = "site")
 ggplot(na.omit(f), aes(x=number))+geom_histogram()+facet_wrap(~forest)
 
 
-hist(f$number, seq(0,max(f$number)+1)-.5)
-
-
 
 
 
