@@ -49,7 +49,7 @@ d2 = read.csv("data/site.csv")
 library(plyr)
 f = ddply(d2, "site", summarise, number=length(year))
 f = join(f, d[,c("site","forest")], by = "site")
-ggplot(na.omit(f), aes(x=number))+geom_histogram()+facet_wrap(~forest)
+ggplot(na.omit(f), aes(x=number))+geom_histogram(binwidth=1)+facet_wrap(~forest)
 
 
 
