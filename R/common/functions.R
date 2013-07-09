@@ -1,4 +1,8 @@
 
+# Variables
+forest3 = c(9020,9030,9090)
+
+
 # Quit function
 myquit = function() q(ifelse(interactive(),"ask","no"))
 
