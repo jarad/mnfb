@@ -24,7 +24,7 @@ refactor_forests = function(forest) {
 
 # Redesignates the following columns as factors
 desig_factors = function(data) {
-  facs <- c("forest","site","nrricode","obs","stockdens","wind","noise","sky","regen")
+  facs <- c("forest","site","nrricode","obs","stockdens","wind","noise","sky","regen", "yearf", "fsdr", "finsdr", "bsdr")
   for (i in 1:length(facs)) {
     if (facs[i] %in% names(data)) {data[,facs[i]] <- as.factor(data[,facs[i]])}
   }
