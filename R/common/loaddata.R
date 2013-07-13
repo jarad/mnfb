@@ -1,9 +1,9 @@
 #' A function to extract survey information for a set of species and forests. 
 #'
-#' @param spp a string vector indicating which species are requested.
+#' @param species a string vector indicating which species are requested.
 #' @param forest.study a numeric vector indicating which forests are required 
 #' @return a data.frame with each survey as a row 
-loaddata <- function(spp, forest.study){
+loaddata <- function(species, forest.study){
 
   require(plyr)
   require(stringr)
@@ -15,7 +15,7 @@ loaddata <- function(spp, forest.study){
   
   # Name the species of interest and look up its NRRI code
   nrri_bird_code <- read.csv("data/nrri_bird_code.csv")
-  nrri <- nrri_bird_code$nrricode[nrri_bird_code$abbrev == spp]
+  nrri <- nrri_bird_code$nrricode[nrri_bird_code$abbrev == species]
   
   # Collect general site and stand data for forest of interest
   d.loc <- read.csv("data/location.csv")
