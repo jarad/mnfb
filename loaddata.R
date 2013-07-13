@@ -1,3 +1,8 @@
+#' A function to extract survey information for a set of species and forests. 
+#'
+#' @param spp a string vector indicating which species are requested.
+#' @param forest.study a numeric vector indicating which forests are required 
+#' @return a data.frame with each survey as a row 
 loaddata <- function(spp, forest.study){
 
 require(plyr)
