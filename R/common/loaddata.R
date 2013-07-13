@@ -14,8 +14,8 @@ loaddata <- function(spp, forest.study){
   # For the following, the user needs to input the species (spp) and the forest (forest.study)... which suggests defining a function...
   
   # Name the species of interest and look up its NRRI code
-  d.nrri <- read.csv("data/nrri_bird_code.csv")
-  nrri <- d.nrri$nrricode[d.nrri$abbrev == spp]
+  nrri_bird_code <- read.csv("data/nrri_bird_code.csv")
+  nrri <- nrri_bird_code$nrricode[nrri_bird_code$abbrev == spp]
   
   # Collect general site and stand data for forest of interest
   d.loc <- read.csv("data/location.csv")
