@@ -10,13 +10,17 @@ loaddata <- function(species, forest.study){
   require(lubridate)
   
   source("R/common/functions.R")
-  
-  # For the following, the user needs to input the species (spp) and the forest (forest.study)... which suggests defining a function...
-  
+
+  # Read in data set with all bird observations
+  d.bird <- read.csv("data/bird.csv")
+
   # Name the species of interest and look up its NRRI code
-  nrri_bird_code <- read.csv("data/nrri_bird_code.csv")
-  nrri <- nrri_bird_code$nrricode[nrri_bird_code$abbrev == species]
-  
+  nrri_bird_code = read.csv("data/nrri_bird_code.csv")
+  nrri_code = nrri_bird_code$nrricode[nrri_bird_code$abbrev %in% species]
+  d.bird = join(d.bird, nrri_bird_code[,c("nrricode","abbrev")], "nrricode")
+ 
+
+ 
   # Collect general site and stand data for forest of interest
   d.loc <- read.csv("data/location.csv")
   d.loc <- d.loc[d.loc$forest == forest.study, c("forest", "standunique", "site", "X_COORD", "Y_COORD")]
@@ -35,8 +39,7 @@ loaddata <- function(species, forest.study){
   d.site$time <- hour(POSIXtime) + minute(POSIXtime)/60
   
   # Bird counts by site & year for species of interest
-  d.bird <- read.csv("data/bird.csv")
-  d.bird <- d.bird[d.bird$nrricode == nrri & d.bird$site %in% d.loc$site,]
+  d.bird <- d.bird[d.bird$nrricode %in% nrri_code & d.bird$site %in% d.loc$site,]
   d.bird <- ddply(d.bird, .(site, year), summarize,
                   X1=length(minutes3==1), 
                   X2=length(minutes3==2), 
