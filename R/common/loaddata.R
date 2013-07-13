@@ -18,12 +18,13 @@ loaddata <- function(species, forest.study){
   nrri_bird_code = read.csv("data/nrri_bird_code.csv")
   nrri_code = nrri_bird_code$nrricode[nrri_bird_code$abbrev %in% species]
   d.bird = join(d.bird, nrri_bird_code[,c("nrricode","abbrev")], "nrricode")
- 
 
+  d.bird = d.bird[d.bird$abbrev %in% species,] 
+ 
  
   # Collect general site and stand data for forest of interest
   d.loc <- read.csv("data/location.csv")
-  d.loc <- d.loc[d.loc$forest == forest.study, c("forest", "standunique", "site", "X_COORD", "Y_COORD")]
+  d.loc <- d.loc[d.loc$forest %in% forest.study, c("forest", "standunique", "site", "X_COORD", "Y_COORD")]
   
   # Generate sites and time-of-observation data for sites within the forest of interest
   d.site <- read.csv("data/site.csv")
