@@ -11,11 +11,19 @@ loaddata <- function(species, forest.study){
   
   source("R/common/functions.R")
 
-  # Read in data set with all bird observations
+  # Read in relevant data sets
   d.bird <- read.csv("data/bird.csv")
+  d.loc <- read.csv("data/location.csv")
+  d.site <- read.csv("data/site.csv")
+  d.fstype <- read.csv("data/forest_type.csv")
+  d.soy <- read.csv("data/current_site_ages.csv")
+  nrri_bird_code = read.csv("data/nrri_bird_code.csv")
+
+
+  
+
 
   # Name the species of interest and look up its NRRI code
-  nrri_bird_code = read.csv("data/nrri_bird_code.csv")
   nrri_code = nrri_bird_code$nrricode[nrri_bird_code$abbrev %in% species]
   d.bird = join(d.bird, nrri_bird_code[,c("nrricode","abbrev")], "nrricode")
 
@@ -23,15 +31,13 @@ loaddata <- function(species, forest.study){
  
  
   # Collect general site and stand data for forest of interest
-  d.loc <- read.csv("data/location.csv")
   d.loc <- d.loc[d.loc$forest %in% forest.study, c("forest", "standunique", "site", "X_COORD", "Y_COORD")]
   
   # Generate sites and time-of-observation data for sites within the forest of interest
-  d.site <- read.csv("data/site.csv")
   d.site <- d.site[d.site$site %in% d.loc$site,]
   d.site <- d.site[,c("site", "year", "date", "time", "obs", "temp", "wind", "sky", "noise", "fstype")]
   
-  # Convert daate and time to numeric "jd" and "time"
+  # Convert date and time to numeric "jd" and "time"
   POSIXdate <- as.POSIXct(as.character(d.site$date), format = "%m/%d/%Y %H:%M:%S")
   jan1 <- as.Date(paste("1/1/", year(POSIXdate), sep=""), format = "%m/%d/%Y")
   d.site$jd <- as.numeric(floor(difftime(POSIXdate, jan1, units = "days"))) + 1
@@ -53,14 +59,12 @@ loaddata <- function(species, forest.study){
   
   # Habitat Variables
   # I would appreciate if you look this to consider alternative variable choices, given discussings with Jerry
-  d.fstype <- read.csv("data/forest_type.csv")
   d.fstype <- d.fstype[,c("fstype", "fstypename", "fine2", "broad2", "age")]
   # Define a couple of variables (note: the code for stockdense is the final digit of fstype)
   d.fstype$regen <- ifelse(d.fstype$age == "regeneration","yes","no")
   d.fstype$stockdens <- str_sub(d.fstype$fstype, -1, -1)
   
   # Get siteorigyear
-  d.soy <- read.csv("data/current_site_ages.csv")
   colnames(d.soy)[colnames(d.soy)=="X04_RevisedYearOrig"] <- "siteorigyear"
   
     
