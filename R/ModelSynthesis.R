@@ -4,7 +4,7 @@ require(lme4)
 require(plyr)
 
 source("R/common/functions.R")
-source("R/loaddata.R")
+source("R/common/loaddata.R")
 
 ##########################
 # Load Data
