@@ -76,10 +76,10 @@ loaddata <- function(species, forest.study){
   
   # Note: there is one ovenbird bird observation for site:1012 year:2010 with no corresponding d.site entry.
   # I think we should consider what to do with observations that have no data-collection entry in site.csv.
-  # The points would not be used in models on account of NAs.  Is it useful to identify all these points?  I noticed in code-testing that "UFLY" has 39 of them.
+  # I made an error before.  1012/2010 is the only site/year without a d.site entry.  Conversely, there are three d.sites without any site/year observations: "686 1992"  "289 2008"  "1655 2008"
   
-  # Convert NAs in the counts to zeros -- uses that fact that if is.na(t3$X1)==TRUE, then so are all the other counts
-  t4[,c("X1", "X2", "X3", "N", "X1_100", "X2_100", "X3_100", "N_100")][is.na(t3$X1),] <- 0
+  # Convert NAs in the counts to zeros -- uses that fact that if is.na(t4$X1)==TRUE, then so are all the other counts
+  t4[,c("X1", "X2", "X3", "N", "X1_100", "X2_100", "X3_100", "N_100")][is.na(t4$X1),] <- 0
   
   
   # I have not yet created the following variables:
