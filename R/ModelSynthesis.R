@@ -15,6 +15,13 @@ birds <- birds[,-which(names(birds)=="X_COORD")]   # Drops XCOORD
 birds <- birds[,-which(names(birds)=="Y_COORD")]   # Drops YCOORD
 birds <- na.omit(birds)
 
+birds$key   <- paste(birds$site, birds$year, birds$abbrev)
+birds$yearf <- as.factor(birds$year)
+birds$obsyr <- factor(paste(birds$obs, birds$year))
+birds$fsdr  <- factor(paste(birds$fstypename, birds$stockdens, birds$regen))
+birds$bsdr  <- factor(paste(birds$broad2, birds$stockdens, birds$regen))
+birds$finsdr <- factor(paste(birds$fine2, birds$stockdens, birds$regen))
+
 birds$year <- scale(birds$year)
 birds$temp <- scale(birds$temp)
 birds$jd   <- scale(birds$jd)
@@ -27,12 +34,6 @@ birds$jd2   <- (birds$jd)^2
 birds$time2 <- (birds$time)^2
 birds$soy2 <- (birds$siteorigyear)^2
 
-birds$yearf <- as.factor(birds$year)
-birds$obsyr <- factor(paste(birds$obs, birds$year))
-birds$fsdr  <- factor(paste(birds$fstypename, birds$stockdens, birds$regen))
-birds$bsdr  <- factor(paste(birds$broad2, birds$stockdens, birds$regen))
-birds$finsdr <- factor(paste(birds$fine2, birds$stockdens, birds$regen))
-
 desig_factors(birds)
 
 ##########################
@@ -42,13 +43,13 @@ desig_factors(birds)
 # birds <- subset(birds, abbrev=="OVEN")
 # sites <- unique(birds$site[birds$forest==9020])
 sites <- unique(birds$site)
-sites.samp <- sample(sites, ceiling(length(sites)*0.25))
+sites.samp <- sample(sites, ceiling(length(sites)*0.25))   # Alternatively, we could subsample stands
 birds <- subset(birds, site %in% sites.samp)
 
 ##########################
 # Run Models & Purge NA's
 
-source("R/models.R")
+source("R/common/models.R")
 
 for (j in i:1){
   if (is.logical(z[[j]])) {
@@ -59,6 +60,17 @@ i <- length(z)
 
 
 ##########################
-# Compile AIC/BIC, Fixed Effect Data, and Variance of Random Effects
+# Compile AIC/BIC, Fixed Effect Data, Variance of Random Effects, and Estimate Random Effects
 
 a <- get.effects(z)
+fixedeff <- a$fixedeff
+fixederr <- a$fixederr
+fixedp <- a$fixedp
+infocrit <- a$infocrit
+randeffs <- a$randeffs
+estyearf <- laply(z, randex, "yearf", birds); colnames(estyearf) <- sort(unique(birds$yearf))
+estobs <- laply(z, randex, "obs", birds); colnames(estobs) <- sort(unique(birds$obs))
+estobsyr <- laply(z, randex, "obsyr", birds); colnames(estobsyr) <- sort(unique(birds$obsyr))
+estsite <- laply(z, randex, "site", birds); colnames(estsite) <- sort(unique(birds$site))
+estkey <- laply(z, randex, "key", birds); colnames(estkey) <- sort(unique(birds$key))
+estfstype <- laply(z, randex, "fstypename", birds); colnames(estfstype) <- sort(unique(birds$fstypename))
