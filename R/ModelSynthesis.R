@@ -68,9 +68,18 @@ fixederr <- a$fixederr
 fixedp <- a$fixedp
 infocrit <- a$infocrit
 randeffs <- a$randeffs
-estyearf <- laply(z, randex, "yearf", birds); colnames(estyearf) <- sort(unique(birds$yearf))
-estobs <- laply(z, randex, "obs", birds); colnames(estobs) <- sort(unique(birds$obs))
-estobsyr <- laply(z, randex, "obsyr", birds); colnames(estobsyr) <- sort(unique(birds$obsyr))
-estsite <- laply(z, randex, "site", birds); colnames(estsite) <- sort(unique(birds$site))
-estkey <- laply(z, randex, "key", birds); colnames(estkey) <- sort(unique(birds$key))
-estfstype <- laply(z, randex, "fstypename", birds); colnames(estfstype) <- sort(unique(birds$fstypename))
+estyearf <- laply(z, randex, "yearf", birds)
+estobs <- laply(z, randex, "obs", birds)
+estobsyr <- laply(z, randex, "obsyr", birds)
+estsite <- laply(z, randex, "site", birds)
+estkey <- laply(z, randex, "key", birds)
+estfstype <- laply(z, randex, "fstypename", birds)
+
+if (i>1) {
+  colnames(estyearf) <- sort(unique(birds$yearf))
+  colnames(estobs) <- sort(unique(birds$obs))
+  colnames(estobsyr) <- sort(unique(birds$obsyr))
+  colnames(estsite) <- sort(unique(birds$site))
+  colnames(estkey) <- sort(unique(birds$key))
+  colnames(estfstype) <- sort(unique(birds$fstypename))
+}
