@@ -31,7 +31,7 @@ desig_factors = function(data) {
 }
 
 
-# Extracts information criteria, fixed effects, and random effects from a list of models
+# Extracts information criteria, fixed effects, and random effects variance from a list of models
 get.effects <- function(modellist) {
   z <- modellist
   i <- length(z)
@@ -75,4 +75,15 @@ get.effects <- function(modellist) {
               fixedp = fixedp,
               infocrit = infocrit,
               randeffs = randeffs))
+}
+
+
+# Extracts estimated random effects from a model
+randex <- function (modl, var, origdata){
+  k1 <- match(var, names(ranef(modl)))
+  k2 <- match(var, names(origdata))
+  res <- if(is.na(k1)) {rep(NA, length(unique(origdata[,k2])))
+  } else {
+    res <- ranef(modl)[[k1]][[1]]
+  }
 }
