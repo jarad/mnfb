@@ -24,10 +24,11 @@ refactor_forests = function(forest) {
 
 # Redesignates the following columns as factors
 desig_factors = function(data) {
-  facs <- c("forest","site","nrricode","obs","stockdens","wind","noise","sky","regen", "yearf", "fsdr", "finsdr", "bsdr")
+  facs <- c("forest","site","nrricode","obs","stockdens","wind","noise","sky","regen", "yearf", "fsdr", "finsdr", "bsdr", "standunique")
   for (i in 1:length(facs)) {
     if (facs[i] %in% names(data)) {data[,facs[i]] <- as.factor(data[,facs[i]])}
   }
+  return(data)
 }
 
 
@@ -38,7 +39,7 @@ get.effects <- function(modellist) {
   
   # Storage data frames and vectors
   infocrit <- fixedeff <- fixederr <- fixedp <- data.frame()
-  yeareff <- obseff <- siteff <- keyeff <- fstypeff <- fineff <- broadeff <- numeric(length(z))
+  yeareff <- obseff <- obsyreff <- standeff <- siteff <- keyeff <- fstypeff <- fineff <- broadeff <- numeric(length(z))
   
   for (j in 1:i){
     # Collect Information Criteria
@@ -58,7 +59,9 @@ get.effects <- function(modellist) {
     # For now, the desired random effects are pre-specified
     fuzz <- summary(z[[j]])@REmat
     yeareff[j] <- as.numeric(fuzz[fuzz[,1]=="yearf",][3])
-    obseff[j] <- as.numeric(fuzz[fuzz[,1]=="obsyr",][3])
+    obseff[j] <- as.numeric(fuzz[fuzz[,1]=="obs",][3])
+    obsyreff[j] <- as.numeric(fuzz[fuzz[,1]=="obsyr",][3])
+    standeff[j] <- as.numeric(fuzz[fuzz[,1]=="standunique",][3])
     siteff[j] <- as.numeric(fuzz[fuzz[,1]=="site",][3])
     keyeff[j] <- as.numeric(fuzz[fuzz[,1]=="key",][3])
     fstypeff[j] <- as.numeric(fuzz[fuzz[,1]=="fstypename",][3])
@@ -66,7 +69,7 @@ get.effects <- function(modellist) {
     broadeff[j] <- as.numeric(fuzz[fuzz[,1]=="broad2",][3])
   }
   
-  randeffs <- cbind(broadeff, fineff, fstypeff, yeareff, obseff, siteff, keyeff)
+  randeffs <- cbind(broadeff, fineff, fstypeff, yeareff, obseff, obsyreff, standeff, siteff, keyeff)
   rownames(infocrit) <- rownames(randeffs) <- nms
   colnames(fixedeff) <- colnames(fixederr) <- colnames(fixedp) <- c("Effect", nms)
   
