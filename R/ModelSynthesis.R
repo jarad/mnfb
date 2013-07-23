@@ -55,9 +55,9 @@ for (species in c("BLBW", "BTNW", "OVEN")){
     source("R/common/models.R")
     
     for (j in i:1){
-      if (is.logical(z[[j]])) {
-        z <- z[[-j]]
-        nms <- nms[-i] }
+      if (is.null(z[[j]])) {
+        z <- z[-j]
+        nms <- nms[-j] }
     }
     i <- length(z)
     
@@ -97,12 +97,11 @@ for (species in c("BLBW", "BTNW", "OVEN")){
     # Compile AIC/BIC, Fixed Effect Data, Variance of Random Effects, and Estimate Random Effects
     write = TRUE
     if(write) {
-      #   write.csv(fixedeff, file = paste("modout/fixedeff", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(fixederr, file = paste("modout/fixederr", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(fixedp, file = paste("modout/fixedp", species, fornum, ".csv", sep = "", na="."))
+      write.csv(fixedeff, file = paste("modout/fixedeff", species, fornum, ".csv", sep = "", na="."))
+      write.csv(fixederr, file = paste("modout/fixederr", species, fornum, ".csv", sep = "", na="."))
+      write.csv(fixedp, file = paste("modout/fixedp", species, fornum, ".csv", sep = "", na="."))
       write.csv(infocrit, file = paste("modout/infocrit", species, fornum, ".csv", sep = "", na="."))
       write.csv(randeffs, file = paste("modout/randeffs", species, fornum, ".csv", sep = "", na="."))
-      print(dim(birds))
       #   write.csv(estyearf, file = paste("modout/estyearf", species, fornum, ".csv", sep = "", na="."))
       #   write.csv(estobs, file = paste("modout/estobs", species, fornum, ".csv", sep = "", na="."))
       #   write.csv(estobsyr, file = paste("modout/estobsyr", species, fornum, ".csv", sep = "", na="."))
@@ -112,6 +111,7 @@ for (species in c("BLBW", "BTNW", "OVEN")){
       #   write.csv(estfstype, file = paste("modout/estfstype", species, fornum, ".csv", sep = "", na="."))
       #   write.csv(estbroad, file = paste("modout/estbroad", species, fornum, ".csv", sep = "", na="."))
       #   write.csv(estfine, file = paste("modout/estfine", species, fornum, ".csv", sep = "", na="."))
+      print(paste(dim(birds)[1], "obs"))
     }    
   }
 }
