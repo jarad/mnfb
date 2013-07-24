@@ -9,7 +9,7 @@ source("R/common/loaddata.R")
 ##########################
 # Load Data
 
-modelErrors = data.frame(species=character(), fornum=numeric(), model=character(), type=character(), message=character())
+modelErrors <<- data.frame(species=character(), fornum=numeric(), model=character(), type=character(), message=character())
 
 for (species in c("BLBW", "BTNW", "OVEN")){
   for (fornum in c(9020, 9030, 9090)){
