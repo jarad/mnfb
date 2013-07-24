@@ -7,10 +7,12 @@ myTryCatch = function(species, fornum, nms, ...) {
     warning = function(w) {
       # warning-handler-code
       modelErrors <<- rbind(modelErrors, data.frame(species=species, fornum=fornum, model=nms, type="warning", message=as.character(w)))
+      return(suppressWarnings(...))
     }, 
     error = function(e) {
       # error-handler-code
       modelErrors <<- rbind(modelErrors, data.frame(species=species, fornum=fornum, model=nms, type="error", message=as.character(e)))
+      return(NULL) # Or do you want this to be NA?
     }, finally = {
       # cleanup-code
     })
@@ -25,36 +27,33 @@ i=1
 
 
 nms[i] <- c("stand, site, key")
-myTryCatch(species, fornum, nms[i], z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + (1|site) + (1|key), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + (1|site) + (1|key), data=birds, family=poisson))
 
 i = i+1
 nms[i] <- c("site, key")
-myTryCatch(species, fornum, nms[i], z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|site) + (1|key), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|site) + (1|key), data=birds, family=poisson))
 
 i = i+1
 nms[i] <- c("key")
-myTryCatch(species, fornum, nms[i], z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|key), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|key), data=birds, family=poisson))
 
 i = i+1
 nms[i] <- c("stand, site")
-myTryCatch(species, fornum, nms[i], z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + (1|site), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + (1|site), data=birds, family=poisson))
 
 i = i+1
 nms[i] <- c("site")
-myTryCatch(species, fornum, nms[i],
-z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|site), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|site), data=birds, family=poisson))
 
 i = i+1
 nms[i] <- c("stand")
-myTryCatch(species, fornum, nms[i],
-z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique), data=birds, family=poisson))
 
 i = i+1
 nms[i] <- c("stand, key")
-myTryCatch(species, fornum, nms[i],
-z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + (1|key), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + (1|key), data=birds, family=poisson))
 
 i = i+1
 nms[i] <- c("none")
-myTryCatch(species, fornum, nms[i],
-z[i] <- glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr), data=birds, family=poisson))
+z[i] = myTryCatch(species, fornum, nms[i], glmer(N ~ fsdr + wind + noise + sky + year + year2 + jd + jd2 + time + time2 + temp + temp2 + siteorigyear + (1|yearf) + (1|obs) + (1|obsyr), data=birds, family=poisson))
+
