@@ -9,7 +9,7 @@ source("R/common/loaddata.R")
 ##########################
 # Load Data
 
-for (species in c("BLBW", "BTNW", "OVEN")){
+for (species in c("BLBW", "BTNW", "OVEN", "CONW")){
   for (fornum in c(9020, 9030, 9090)){
 
     birds <- loaddata(species, fornum)
@@ -21,6 +21,7 @@ for (species in c("BLBW", "BTNW", "OVEN")){
     birds$key   <- paste(birds$site, birds$year, birds$abbrev)
     birds$yearf <- as.factor(birds$year)
     birds$obsyr <- factor(paste(birds$obs, birds$year))
+    # Note for the following: right now, sd implies regen, so the regen's below are redundant
     birds$fsdr  <- factor(paste(birds$fstypename, birds$stockdens, birds$regen))
     birds$bsdr  <- factor(paste(birds$broad2, birds$stockdens, birds$regen))
     birds$finsdr <- factor(paste(birds$fine2, birds$stockdens, birds$regen))
@@ -97,20 +98,21 @@ for (species in c("BLBW", "BTNW", "OVEN")){
     # Compile AIC/BIC, Fixed Effect Data, Variance of Random Effects, and Estimate Random Effects
     write = TRUE
     if(write) {
-      write.csv(fixedeff, file = paste("modout/fixedeff", species, fornum, ".csv", sep = "", na="."))
-      write.csv(fixederr, file = paste("modout/fixederr", species, fornum, ".csv", sep = "", na="."))
-      write.csv(fixedp, file = paste("modout/fixedp", species, fornum, ".csv", sep = "", na="."))
-      write.csv(infocrit, file = paste("modout/infocrit", species, fornum, ".csv", sep = "", na="."))
-      write.csv(randeffs, file = paste("modout/randeffs", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estyearf, file = paste("modout/estyearf", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estobs, file = paste("modout/estobs", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estobsyr, file = paste("modout/estobsyr", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(eststand, file = paste("modout/eststand", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estsite, file = paste("modout/estsite", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estkey, file = paste("modout/estkey", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estfstype, file = paste("modout/estfstype", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estbroad, file = paste("modout/estbroad", species, fornum, ".csv", sep = "", na="."))
-      #   write.csv(estfine, file = paste("modout/estfine", species, fornum, ".csv", sep = "", na="."))
+      write.csv(fixedeff, file = paste("modout/fixedeff", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(fixederr, file = paste("modout/fixederr", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(fixedp, file = paste("modout/fixedp", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(infocrit, file = paste("modout/infocrit", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(randeffs, file = paste("modout/randeffs", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(estyearf, file = paste("modout/estyearf", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(estobs, file = paste("modout/estobs", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(estobsyr, file = paste("modout/estobsyr", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(eststand, file = paste("modout/eststand", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(estsite, file = paste("modout/estsite", species, fornum, ".csv", sep = ""), na=".")
+#       write.csv(estkey, file = paste("modout/estkey", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(estfstype, file = paste("modout/estfstype", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(estbroad, file = paste("modout/estbroad", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(estfine, file = paste("modout/estfine", species, fornum, ".csv", sep = ""), na=".")
+      write.csv(birds, file = paste("modout/", species, fornum, ".csv", sep = ""), na=".")
       print(paste(dim(birds)[1], "obs"))
     }    
   }
