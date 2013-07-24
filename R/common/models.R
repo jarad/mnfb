@@ -1,14 +1,16 @@
 require(lme4)
 
+
+
 myTryCatch = function(species, fornum, nms, ...) {
   tryCatch(...,
     warning = function(w) {
       # warning-handler-code
-      print(paste(species, fornum, nms, w))
+      modelErrors <<- rbind(modelErrors, data.frame(species=species, fornum=fornum, model=nms, type="warning", message=as.character(w)))
     }, 
     error = function(e) {
       # error-handler-code
-      print(paste(species, fornum, nms, e))
+      modelErrors <<- rbind(modelErrors, data.frame(species=species, fornum=fornum, model=nms, type="error", message=as.character(e)))
     }, finally = {
       # cleanup-code
     })
