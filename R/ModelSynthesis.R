@@ -9,7 +9,13 @@ source("R/common/loaddata.R")
 ##########################
 # Load Data
 
+<<<<<<< HEAD
 for (species in c("BLBW", "BTNW", "OVEN", "CONW")){
+=======
+modelErrors <<- data.frame(species=character(), fornum=numeric(), model=character(), type=character(), message=character())
+
+for (species in c("BLBW", "BTNW", "OVEN")){
+>>>>>>> eaa75a2e92ef3d008a9986e768ee42deb2c7e98e
   for (fornum in c(9020, 9030, 9090)){
 
     birds <- loaddata(species, fornum)
