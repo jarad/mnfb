@@ -25,7 +25,7 @@ loaddata <- function(species, forest.study){
 
   # Name the species of interest and look up its NRRI code
   nrri_code = nrri_bird_code$nrricode[nrri_bird_code$abbrev %in% species]
-  d.bird = join(d.bird, nrri_bird_code[,c("nrricode","abbrev")], "nrricode")
+  d.bird = join(d.bird[d.bird$year > 1994.5,], nrri_bird_code[,c("nrricode","abbrev")], "nrricode")
 
   d.bird = d.bird[d.bird$abbrev %in% species,] 
  
@@ -34,7 +34,7 @@ loaddata <- function(species, forest.study){
   d.loc <- d.loc[d.loc$forest %in% forest.study, c("forest", "standunique", "site", "X_COORD", "Y_COORD")]
   
   # Generate sites and time-of-observation data for sites within the forest of interest
-  d.site <- d.site[d.site$site %in% d.loc$site,]
+  d.site <- d.site[d.site$site %in% d.loc$site & d.site$year > 1994.5,]
   d.site <- d.site[,c("site", "year", "date", "time", "obs", "temp", "wind", "sky", "noise", "fstype")]
   
   # Convert date and time to numeric "jd" and "time"
