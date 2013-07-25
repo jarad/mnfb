@@ -24,7 +24,7 @@ cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2"
 
 # jd by forest by year
 pdf(fig_dir("SiteDatesPlot-byForestbyYear.pdf"), width=6.5, height=4.5)
-qplot(jd, geom="histogram", data = t[t$year > 1994.5 & t$year < 2010.5,], binwidth=1, fill=forest, facets = ~year, xlab = "Julian Date") + scale_fill_manual(values=cbbPalette)
+qplot(year, jd, geom="point", data = t[t$year > 1994.5,], binwidth=1, facets = ~forest, xlab = "Year", ylab = "Julian Date", size = I(2))
 dev.off()
 
 
