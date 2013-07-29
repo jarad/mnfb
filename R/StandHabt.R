@@ -25,6 +25,7 @@ flcc <- function(data){
 # Function to convert a table of habitat types by site-year into a matrix of habitat type by site and year (plus extra columns output by the flcc() function)
 sort.habt <- function(data, fornum, habitat){
   require(reshape2)
+  hbt.lev <- levels(data[,match(habitat, names(data))])
   data[,match(habitat, names(data))] <- as.numeric(data[,match(habitat, names(data))])  # Convert habt type to numeric for casting purposes
   hindex <- match(habitat, c("broad2",  "fstypename", "fine2", "fstype"))
   h.notused <- list(c(0, 3), c(0, 22), c(0, 1, 10), c(0, 1, 2))   # Look up 'not used' or blank factor levels by habitat type
@@ -37,6 +38,8 @@ sort.habt <- function(data, fornum, habitat){
   hbt[,c("first", "last", "changes", "changeyr")] <- flcc(hbt)
   hbt <- subset(hbt, !is.na(hbt$first))         # Get rid of sites that never had a habitat classification
   sort.hbt <- hbt[order(hbt$first, hbt$last, hbt$changeyr),]  # Sort table by first/last/changeyr habitat type
+  attr(sort.hbt, "hab.type") <- habitat
+  attr(sort.hbt, "hab.levels") <- hbt.lev
   return(sort.hbt)
 }
 
@@ -103,66 +106,87 @@ summary(d.log$year)
 
 
 
-# Example analysis of Broad2 using forest 9030:
-t.9030 <- sort.habt(t, 9030, "fine2")
-image(as.matrix(t.9030[,2:(match("first", names(t.9030))-1)] ), col = cbbPalette) # X-axis: Sites;   Y-axis: Years
 
-# Same plot with only sites that have changed:
-image(as.matrix(t.9030[t.9030$changes > 0,2:(match("first", names(t.9030))-1)] ), col = cbbPalette) # X-axis: Sites;   Y-axis: Years
+###########################
+# Creates an image plot of a sort.habt data object
+# The one thing I really haven't figured yet is how to label the legend with the factor text rather than the factor number.
 
-# Looking across the forests (not scripted above), there are some intersting trends...
-# (1) There's been much less turnover of broad2 in 9020 (18) than in 9030 (48) or 9090 (80)
-# (2) Patterns for 9030 and 9090 are similar
+im <- function(data){
+  require(fields)
+  x <- 1:dim(data)[1]
+  y <- as.numeric(names(data)[2:(match("first", names(data))-1)])
+  z <- as.matrix(data[,2:(match("first", names(data))-1)])
+  ncolor <- length(attr(data, "hab.levels"))
+  image.plot(x, y, z, xlab = "Sites", ylab = "Year", nlevel=ncolor, breaks = 1:(ncolor+1), legend.lab = paste(attr(data, "hab.type"), "Levels"))
+}
 
+# Plots of habitat by forest using im()
+par(mfrow=c(3,1))
+im(sort.habt(t, c(9020), "broad2"))
+im(sort.habt(t, c(9030), "broad2"))
+im(sort.habt(t, c(9090), "broad2"))
+im(sort.habt(t, c(9020), "fine2"))
+im(sort.habt(t, c(9030), "fine2"))
+im(sort.habt(t, c(9090), "fine2"))
+im(sort.habt(t, c(9020), "fstypename"))
+im(sort.habt(t, c(9030), "fstypename"))
+im(sort.habt(t, c(9090), "fstypename"))
 
+# Plots of habitat for sites that have changed by forest using im()
+par(mfrow=c(3,1))
+w = sort.habt(t, c(9020), "broad2"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9030), "broad2"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9090), "broad2"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9020), "fine2"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9030), "fine2"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9090), "fine2"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9020), "fstypename"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9030), "fstypename"); im(w[w$changes > 0,])
+w = sort.habt(t, c(9090), "fstypename"); im(w[w$changes > 0,])
 
-
-t.f.9030 <- sort.habt(t, 9030, "fstypename")
-image(as.matrix(t.f.9030[,2:(match("first", names(t.f.9030))-1)] )) # X-axis: Sites;   Y-axis: Years
-
-# Same plot with only sites that have changed:
-image(as.matrix(t.f.9030[t.f.9030$changes > 0,2:(match("first", names(t.f.9030))-1)] )) # X-axis: Sites;   Y-axis: Years
-
-# Same plot with only sites that have changed twice:
-# I find it interesting that all two-change sites return to home base.  But there's only four sites in 9030.
-image(as.matrix(t.f.9030[t.f.9030$changes > 1,2:(match("first", names(t.f.9030))-1)] )) # X-axis: Sites;   Y-axis: Years
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Looking across the forests, there's been much less turnover of broad2 in 9020 (18) than in 9030 (48) or 9090 (80).
 
 
 
 
+###########################
+# Habitat composition by forest by year (all non-NA data)
+# Note: haven't re-coded factor levels into values yet.
+
+require(ggplot2)
+require(plyr)
+
+# Broad2
+brd.a <- sort.habt(t, c(9020, 9030, 9090), "broad2")
+brd.a <- merge(brd.a, d.loc[, c("site", "forest")], by = "site")
+brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(t.9030))-1))
+
+ggplot(brd.m[!is.na(brd.m$value),], aes(x=variable, stat="bin", fill=factor(value))) + geom_bar(position="fill") + scale_fill_manual(values=cbbPalette) + facet_grid( ~ forest)
+
+table(brd.a$first, brd.a$last)
+
+# Fine2
+brd.a <- sort.habt(t, c(9020, 9030, 9090), "fine2")
+brd.a <- merge(brd.a, d.loc[, c("site", "forest")], by = "site")
+brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(t.9030))-1))
+
+ggplot(brd.m[!is.na(brd.m$value),], aes(x=variable, stat="bin", fill=factor(value))) + geom_bar(position="fill") + facet_grid( ~ forest)
+
+table(brd.a$first, brd.a$last)
+
+# Fstypename
+brd.a <- sort.habt(t, c(9020, 9030, 9090), "fstypename")
+brd.a <- merge(brd.a, d.loc[, c("site", "forest")], by = "site")
+brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(t.9030))-1))
+
+ggplot(brd.m[!is.na(brd.m$value),], aes(x=variable, stat="bin", fill=factor(value))) + geom_bar(position="fill") + facet_grid( ~ forest)
+
+table(brd.a$first, brd.a$last)
 
 
-brd.m <- melt(t.9030, id.vars = 1, measure.vars = 2:(match("changes", names(t.9030))-1))
-qplot(variable, geom="bar", fill=factor(value), data=brd.m, main = "Sites by Broad2 Each Year") + scale_fill_manual(values=cbbPalette)
-table(t.9030$first, t.9030$last)
-
-
-
-
-
-
-
+###########################
 # Logging
 # Note: some events in 'logging' are actually blowdowns (or a beaver dam)
-
 
 log.events <- dcast(d.log[d.log$forest == 9030,], Site ~ year, fun = length, value.var="logged")
 
