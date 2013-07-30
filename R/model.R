@@ -1,3 +1,9 @@
+library(lme4)
+library(plyr)
+
+source("R/common/loaddata.R")
+
+
 ###########################################################
 # Set up dataframe to look at species and forests
 ###########################################################
@@ -12,7 +18,6 @@ species_forest = species_forest[species_forest$abbrev %in% c("OVEN","BTNW"),]
 ###########################################################
 # Function to run analysis for a single species and forest
 ###########################################################
-library(lme4)
 run_model = function(d,...) {
   glmer(N ~ year + I(year^2) + 
             temp + I(temp^2) +
@@ -34,7 +39,6 @@ if(parallel){
     registerDoMC()
 }
 
-library(plyr)
 out = dlply(species_forest,
             .(fornum,abbrev),
             run_model,
