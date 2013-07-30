@@ -21,9 +21,12 @@ species_forest = species_forest[species_forest$abbrev %in% c("OVEN","BTNW"),]
 run_model = function(d,...) {
   glmer(N ~ year + I(year^2) + 
             temp + I(temp^2) +
-            jd + I(jd^2) + 
+            jd   + I(jd^2  ) + 
             time + I(time^2) + 
             siteorigyear + 
+            noise +
+            (1|wind) +
+            (1|broad2) + (1|fine2) + (1|fstypename) +
             (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + 
             (1|site) + (1|key) + (1|sky),
             data = loaddata(d$abbrev, d$fornum),
