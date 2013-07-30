@@ -11,7 +11,7 @@ species_forest = expand.grid(fornum=c(9020,9030,9090),
                              abbrev=read.csv("R/common/trendspecies.csv")$abbrev)
 
 # temporarily reduce the number of analyses
-# species_forest = species_forest[species_forest$abbrev %in% c("OVEN","BTNW"),]
+species_forest = species_forest[species_forest$abbrev %in% c("OVEN","BTNW"),]
 
 
 
