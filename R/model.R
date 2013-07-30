@@ -44,6 +44,6 @@ out = dlply(species_forest,
             run_model,
             .parallel=parallel)
 
-save.image("model.RData")
+save.image("R/model.RData")
 
 
