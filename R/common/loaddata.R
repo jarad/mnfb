@@ -83,11 +83,33 @@ loaddata <- function(species, forest.study){
   
   
   # I have not yet created the following variables:
-  #      key, stock, dense, year2, temp2, jd2, time2, obsyr, fsdr, bsdr, finsdr
-  # stock & dense probably should be left as the combined variable "stockdens"
-  # the squared terms can be created when creating appropriate models
-  # the same goes for key, obsyr, fsdr, bsdr, finsdr
-  # note that fsdr is already exactly present within the variable fstype
+  t4 <- t4[,-which(names(t4)=="X_COORD")]   # Drops XCOORD
+  t4 <- t4[,-which(names(t4)=="Y_COORD")]   # Drops YCOORD
+  t4 <- na.omit(t4)
+    
+  t4$key   <- paste(t4$site, t4$year, t4$abbrev)
+  t4$yearf <- as.factor(t4$year)
+  t4$obsyr <- factor(paste(t4$obs, t4$year))
+
+  # Note for the following: right now, sd implies regen, so the regen's below are redundant
+  t4$fsdr  <- factor(paste(t4$fstypename, t4$stockdens, t4$regen))
+  t4$bsdr  <- factor(paste(t4$broad2, t4$stockdens, t4$regen))
+  t4$finsdr <- factor(paste(t4$fine2, t4$stockdens, t4$regen))
+    
+  t4$year <- scale(t4$year)
+  t4$temp <- scale(t4$temp)
+  t4$jd   <- scale(t4$jd)
+  t4$time <- scale(t4$time)
+  t4$siteorigyear <- scale(t4$siteorigyear)
+    
+  #t4$year2 <- (t4$year)^2
+  #t4$temp2 <- (t4$temp)^2
+  #t4$jd2   <- (t4$jd)^2
+  #t4$time2 <- (t4$time)^2
+  #t4$soy2 <- (t4$siteorigyear)^2
+    
+  t4 <- desig_factors(t4)
+
   # I'm not sure what to do with "regen" as a variable.  What I have done above (i.e. to assign values from the "age" variable) is not what I did before (which was to split "regen" off from the broad2 classification).  Also, what I have done above is redundant with the stockdens variable... but I'm leaving it as is, because I'm not sure what (if anything) is the better strategy.
   # If you survey the forest_type data table, you'll see that regen is applied *differently* in each of the following variables: age, age_class, age2, broad2, fine1, and fine2.  It makes the "regen" concept potentially meaningless.
   

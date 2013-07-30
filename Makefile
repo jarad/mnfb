@@ -12,13 +12,17 @@ OUT_FILES:= $(RFILES:.R=.Rout)
 # Indicator files to show pdfcrop has run
 CROP_FILES:= $(PDFFIGS:.pdf=.pdfcrop)
 
+
+Rcmd := R CMD BATCH --vanilla
+
+
 all: $(TEXFILE).pdf $(OUT_FILES) $(CROP_FILES)
 
 # May need to add something here if some R files depend on others.
 
 # RUN EVERY R FILE
 $(RDIR)/%.Rout: $(RDIR)/%.R $(RDIR)/common/functions.R
-	R CMD BATCH $< $<out
+	$(Rcmd) $< $<out
 
 # CROP EVERY PDF FIG FILE
 $(FIGDIR)/%.pdfcrop: $(FIGDIR)/%.pdf
