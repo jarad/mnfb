@@ -102,11 +102,11 @@ loaddata <- function(species, forest.study){
   birds$time <- scale(birds$time)
   birds$siteorigyear <- scale(birds$siteorigyear)
     
-  birds$year2 <- (birds$year)^2
-  birds$temp2 <- (birds$temp)^2
-  birds$jd2   <- (birds$jd)^2
-  birds$time2 <- (birds$time)^2
-  birds$soy2 <- (birds$siteorigyear)^2
+  #birds$year2 <- (birds$year)^2
+  #birds$temp2 <- (birds$temp)^2
+  #birds$jd2   <- (birds$jd)^2
+  #birds$time2 <- (birds$time)^2
+  #birds$soy2 <- (birds$siteorigyear)^2
     
   birds <- desig_factors(birds)
 
