@@ -83,32 +83,32 @@ loaddata <- function(species, forest.study){
   
   
   # I have not yet created the following variables:
-  birds <- birds[,-which(names(birds)=="X_COORD")]   # Drops XCOORD
-  birds <- birds[,-which(names(birds)=="Y_COORD")]   # Drops YCOORD
-  birds <- na.omit(birds)
+  t4 <- t4[,-which(names(t4)=="X_COORD")]   # Drops XCOORD
+  t4 <- t4[,-which(names(t4)=="Y_COORD")]   # Drops YCOORD
+  t4 <- na.omit(t4)
     
-  birds$key   <- paste(birds$site, birds$year, birds$abbrev)
-  birds$yearf <- as.factor(birds$year)
-  birds$obsyr <- factor(paste(birds$obs, birds$year))
+  t4$key   <- paste(t4$site, t4$year, t4$abbrev)
+  t4$yearf <- as.factor(t4$year)
+  t4$obsyr <- factor(paste(t4$obs, t4$year))
 
   # Note for the following: right now, sd implies regen, so the regen's below are redundant
-  birds$fsdr  <- factor(paste(birds$fstypename, birds$stockdens, birds$regen))
-  birds$bsdr  <- factor(paste(birds$broad2, birds$stockdens, birds$regen))
-  birds$finsdr <- factor(paste(birds$fine2, birds$stockdens, birds$regen))
+  t4$fsdr  <- factor(paste(t4$fstypename, t4$stockdens, t4$regen))
+  t4$bsdr  <- factor(paste(t4$broad2, t4$stockdens, t4$regen))
+  t4$finsdr <- factor(paste(t4$fine2, t4$stockdens, t4$regen))
     
-  birds$year <- scale(birds$year)
-  birds$temp <- scale(birds$temp)
-  birds$jd   <- scale(birds$jd)
-  birds$time <- scale(birds$time)
-  birds$siteorigyear <- scale(birds$siteorigyear)
+  t4$year <- scale(t4$year)
+  t4$temp <- scale(t4$temp)
+  t4$jd   <- scale(t4$jd)
+  t4$time <- scale(t4$time)
+  t4$siteorigyear <- scale(t4$siteorigyear)
     
-  #birds$year2 <- (birds$year)^2
-  #birds$temp2 <- (birds$temp)^2
-  #birds$jd2   <- (birds$jd)^2
-  #birds$time2 <- (birds$time)^2
-  #birds$soy2 <- (birds$siteorigyear)^2
+  #t4$year2 <- (t4$year)^2
+  #t4$temp2 <- (t4$temp)^2
+  #t4$jd2   <- (t4$jd)^2
+  #t4$time2 <- (t4$time)^2
+  #t4$soy2 <- (t4$siteorigyear)^2
     
-  birds <- desig_factors(birds)
+  t4 <- desig_factors(t4)
 
   # I'm not sure what to do with "regen" as a variable.  What I have done above (i.e. to assign values from the "age" variable) is not what I did before (which was to split "regen" off from the broad2 classification).  Also, what I have done above is redundant with the stockdens variable... but I'm leaving it as is, because I'm not sure what (if anything) is the better strategy.
   # If you survey the forest_type data table, you'll see that regen is applied *differently* in each of the following variables: age, age_class, age2, broad2, fine1, and fine2.  It makes the "regen" concept potentially meaningless.
