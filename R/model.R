@@ -18,7 +18,11 @@ species_forest = species_forest[species_forest$abbrev %in% c("OVEN","BTNW"),]
 ###########################################################
 # Function to run analysis for a single species and forest
 ###########################################################
+Rownames = read.csv("R/common/Rownames.csv")$x
+
 run_model = function(d,...) {
+  e = loaddata(d$abbrev, d$fornum)
+  
   glmer(N ~ year + I(year^2) + 
             temp + I(temp^2) +
             jd   + I(jd^2  ) + 
@@ -29,7 +33,7 @@ run_model = function(d,...) {
             (1|broad2) + (1|fine2) + (1|fstypename) +
             (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + 
             (1|site) + (1|key) + (1|sky),
-            data = loaddata(d$abbrev, d$fornum),
+            data = e[rownames(e) %in% Rownames,],
             family=poisson,...)
 }
 
