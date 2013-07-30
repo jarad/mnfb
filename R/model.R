@@ -44,15 +44,6 @@ out = dlply(species_forest,
             run_model,
             .parallel=parallel)
 
-
-############################################
-# Create summary statistics for analysis
-############################################
-
-
-
-
-
-
+save.image("model.RData")
 
 
