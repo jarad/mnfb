@@ -159,7 +159,7 @@ require(plyr)
 # Broad2
 brd.a <- sort.habt(t, c(9020, 9030, 9090), "broad2")
 brd.a <- merge(brd.a, d.loc[, c("site", "forest")], by = "site")
-brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(t.9030))-1))
+brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(brd.a))-1))
 
 ggplot(brd.m[!is.na(brd.m$value),], aes(x=variable, stat="bin", fill=factor(value))) + geom_bar(position="fill") + scale_fill_manual(values=cbbPalette) + facet_grid( ~ forest)
 
@@ -168,7 +168,7 @@ table(brd.a$first, brd.a$last)
 # Fine2
 brd.a <- sort.habt(t, c(9020, 9030, 9090), "fine2")
 brd.a <- merge(brd.a, d.loc[, c("site", "forest")], by = "site")
-brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(t.9030))-1))
+brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(brd.a))-1))
 
 ggplot(brd.m[!is.na(brd.m$value),], aes(x=variable, stat="bin", fill=factor(value))) + geom_bar(position="fill") + facet_grid( ~ forest)
 
@@ -177,7 +177,7 @@ table(brd.a$first, brd.a$last)
 # Fstypename
 brd.a <- sort.habt(t, c(9020, 9030, 9090), "fstypename")
 brd.a <- merge(brd.a, d.loc[, c("site", "forest")], by = "site")
-brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(t.9030))-1))
+brd.m <- melt(brd.a, id.vars = c(1, dim(brd.a)[2]), measure.vars = 2:(match("first", names(brd.a))-1))
 
 ggplot(brd.m[!is.na(brd.m$value),], aes(x=variable, stat="bin", fill=factor(value))) + geom_bar(position="fill") + facet_grid( ~ forest)
 
@@ -190,7 +190,7 @@ table(brd.a$first, brd.a$last)
 
 log.events <- dcast(d.log[d.log$forest == 9030,], Site ~ year, fun = length, value.var="logged")
 
-t.9030.log <- t.9030
+t.9030.log <- sort.habt(t, 9030, "fstypename")
 d.log.9030 <- d.log[d.log$forest == 9030,]
 for (i in 1:dim(d.log.9030)[1]){
   t.9030.log[t.9030.log$site == d.log.9030$Site[i], as.character(d.log.9030$year[i])] <- -1
@@ -198,6 +198,3 @@ for (i in 1:dim(d.log.9030)[1]){
 
 # This image shows that logging events do not change a site's broad2
 image(as.matrix(t.9030.log[,2:(match("first", names(t.9030.log))-1)]), col = cbbPalette) # X-axis: Sites;   Y-axis: Years
-
-
-
