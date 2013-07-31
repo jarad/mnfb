@@ -7,18 +7,19 @@ source("R/common/loaddata.R")
 ###########################################################
 # Set up dataframe to look at species and forests
 ###########################################################
-species_forest = expand.grid(fornum=c(9020,9030,9090),
+species_forest = expand.grid(fornum=c(9020, 9030, 9090),
                              abbrev=read.csv("R/common/trendspecies.csv")$abbrev)
 
 # temporarily reduce the number of analyses
-species_forest = species_forest[species_forest$abbrev %in% c("OVEN","BTNW"),]
+species_forest = species_forest[species_forest$fornum %in% c(9020) & species_forest$abbrev %in% c("BLBW", "BTNW", "OVEN", "CONW"),]
 
 
 
 ###########################################################
 # Function to run analysis for a single species and forest
 ###########################################################
-Rownames = read.csv("R/common/Rownames.csv")$x
+
+keynames <- read.csv("R/common/keynames.csv")$x
 
 run_model = function(d,...) {
   e = loaddata(d$abbrev, d$fornum)
@@ -33,7 +34,7 @@ run_model = function(d,...) {
             (1|broad2) + (1|fine2) + (1|fstypename) +
             (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + 
             (1|site) + (1|key) + (1|sky),
-            data = e[rownames(e) %in% Rownames,],
+            data = e[e$key %in% keynames,],
             family=poisson,...)
 }
 
