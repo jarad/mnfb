@@ -2,7 +2,9 @@ library(lme4)
 library(plyr)
 
 source("R/common/loaddata.R")
+source("R/common/functions.R")
 
+modelErrors <<- data.frame(species=character(), fornum=numeric(), model=character(), type=character(), message=character())
 
 ###########################################################
 # Set up dataframe to look at species and forests
@@ -24,18 +26,20 @@ keynames <- read.csv("R/common/keynames.csv")$x
 run_model = function(d,...) {
   e = loaddata(d$abbrev, d$fornum)
   
-  glmer(N ~ year + I(year^2) + 
-            temp + I(temp^2) +
-            jd   + I(jd^2  ) + 
-            time + I(time^2) + 
-            siteorigyear + 
-            noise +
-            (1|wind) +
-            (1|broad2) + (1|fine2) + (1|fstypename) +
-            (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + 
-            (1|site) + (1|key) + (1|sky),
-            data = e[e$key %in% keynames,],
-            family=poisson,...)
+  myTryCatch(d$abbrev, d$fornum, "main.model",
+             glmer(N ~ year + I(year^2) + 
+                     temp + I(temp^2) +
+                     jd   + I(jd^2  ) + 
+                     time + I(time^2) + 
+                     siteorigyear + 
+                     noise +
+                     (1|wind) +
+                     (1|broad2) + (1|fine2) + (1|fstypename) +
+                     (1|yearf) + (1|obs) + (1|obsyr) + (1|standunique) + 
+                     (1|site) + (1|key) + (1|sky),
+                   data = e[e$key %in% keynames,],
+                   family=poisson,...)
+  )
 }
 
 

@@ -90,3 +90,21 @@ randex <- function (modl, var, origdata){
     res <- ranef(modl)[[k1]][[1]]
   }
 }
+
+
+# Error handling
+myTryCatch = function(species, fornum, nms, ...) {
+  tryCatch(...,
+           warning = function(w) {
+             # warning-handler-code
+             modelErrors <<- rbind(modelErrors, data.frame(species=species, fornum=fornum, model=nms, type="warning", message=as.character(w)))
+             return(suppressWarnings(...))
+           }, 
+           error = function(e) {
+             # error-handler-code
+             modelErrors <<- rbind(modelErrors, data.frame(species=species, fornum=fornum, model=nms, type="error", message=as.character(e)))
+             return(NULL) # Or do you want this to be NA?
+           }, finally = {
+             # cleanup-code
+           })
+}
