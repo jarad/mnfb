@@ -18,12 +18,37 @@
 \label{fig:site-siteyear}
 \end{figure}
 
+Figure \ref{fig:SiteDatesPlot-byForestbyYear} illustrates that the three forests are sampled in the same order every year.  As we will discuss later, this is one reason to model bird counts in each forest separately.  Otherwise, seasonal effects (julian dates) get confounded with location.
 
 \begin{figure}
 \includegraphics{SiteDatesPlot-byForestbyYear}
 \caption{Sampling Dates at Each Forest 1995-2012}
 \label{fig:SiteDatesPlot-byForestbyYear}
 \end{figure}
+
+Figure \ref{fig:SiteDatesPlot-byForestbyYear} suggests that several observations in the site database table may be miscoded either for date (or perhaps for site).  For each of the following cases (Table \ref{tab:isolated-observations}), only 1 or 2 observations were recorded in a particular forest on the date listed, and no other observations were made in that forest within 2 days:
+
+\input{tables/SiteDatesPlot-isolated-observations}
+
+\begin{figure}
+\includegraphics{SiteDatesPlot-orderwithinCheq}
+\caption{Map of Sampling Dates at Each Forest 1995-2012}
+\label{fig:SiteDatesPlot-orderwithinCheq}
+\end{figure}
+
+\begin{figure}
+\includegraphics{SiteDatesPlot-orderwithinChip}
+\caption{Map of Sampling Dates at Each Forest 1995-2012}
+\label{fig:SiteDatesPlot-orderwithinChip}
+\end{figure}
+
+\begin{figure}
+\includegraphics{SiteDatesPlot-orderwithinSup}
+\caption{Map of Sampling Dates at Each Forest 1995-2012}
+\label{fig:SiteDatesPlot-orderwithinSup}
+\end{figure}
+
+In the same way that the sampling order of forests is the same every year, the sampling order of sites within a forest is also the same every year with a few exceptions (Figs. \ref{fig:SiteDatesPlot-orderwithinCheq}, \ref{fig:SiteDatesPlot-orderwithinChip}, and \ref{fig:SiteDatesPlot-orderwithinSup}).  Again, this causes seasonal effects (julian dates) to get confounded with location -- only, this time the location is at the site-stand level instead of at the forest level.
 
 
 
@@ -35,6 +60,3 @@
 \label{fig:Observers-obsyear}
 \end{figure}
 
-The above figure suggests that several observations in the site database table may be miscoded either for site ID or for date.  For each of the following cases, only 1 or 2 observations were recorded in that particular forest on that date, and no other observations were made in that forest within 2 days:
-
-\input{tables/SiteDatesPlot-isolated-observations}

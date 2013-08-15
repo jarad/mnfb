@@ -17,6 +17,10 @@ POSIXdate <- as.POSIXct(as.character(d.site$date), format = "%m/%d/%Y %H:%M:%S")
 jan1 <- as.Date(paste("1/1/", year(POSIXdate), sep=""), format = "%m/%d/%Y")
 d.site$jd <- as.numeric(floor(difftime(POSIXdate, jan1, units = "days"))) + 1
 
+# Calculate Time
+POSIXtime <- as.POSIXct(as.character(d.site$time), format = "%m/%d/%Y %H:%M:%S")
+d.site$time <- hour(POSIXtime) + minute(POSIXtime)/60
+
 # Join location and observation data
 t <- join(d.site, d.loc, by = "site")
 t <- t[t$forest %in% c(9020, 9030, 9090),]
@@ -53,3 +57,32 @@ tab = xtable(isol.tab[order(isol.tab$Forest, isol.tab$Year, isol.tab$Julian.Date
              caption = "Isolated Observations",
              label = "tab:isolated-observations")
 print(tab, file=tab_dir("SiteDatesPlot-isolated-observations.tex"), include.rownames=FALSE)
+
+
+############################
+# Figures: Maps for each forest showing the order of site sampling by year
+
+# ordval: A variable to store the order in which sites are sampled for a specific forest-year
+t$ordval <- NA
+for(j in c("Chequamegon", "Chippewa", "Superior")){
+  for (i in 1:22){
+    t$ordval[t$year == 1994 + i & t$forest == j] <- scale(rank(t$jd[t$year == 1994 + i & t$forest == j]))
+  }
+}
+
+# Faceted plot for Chequamegon
+pdf(fig_dir("SiteDatesPlot-orderwithinCheq.pdf"), width=6.5, height=4.5)
+qplot(X_COORD, Y_COORD, geom="point", data=t[t$year > 1994.5 & t$forest=="Chequamegon" & is.na(t$X_COORD)==FALSE,], color=ordval, facets = ~year, size=I(3), main="Order of Sampling at Chequamegon Forest", xlab="Longitude", ylab="Latitude") + scale_colour_gradient2(low="red3", mid="white", high="navy", name = "Sampling Order", breaks = c(-1.5, 1.5), labels = c("Earliest", "Latest")) + theme(panel.background = element_rect(fill='lightgoldenrod1'), axis.text.x = element_blank(), axis.text.y = element_blank())
+dev.off()
+
+# Faceted plot for Chippewa
+pdf(fig_dir("SiteDatesPlot-orderwithinChip.pdf"), width=6.5, height=4.5)
+qplot(X_COORD, Y_COORD, geom="point", data=t[t$year > 1994.5 & t$forest=="Chippewa" & is.na(t$X_COORD)==FALSE,], color=ordval, facets = ~year, size=I(3), main="Order of Sampling at Chippewa Forest", xlab="Longitude", ylab="Latitude") + scale_colour_gradient2(low="red3", mid="white", high="navy", name = "Sampling Order", breaks = c(-1.5, 1.5), labels = c("Earliest", "Latest")) + theme(panel.background = element_rect(fill='lightgoldenrod1'), axis.text.x = element_blank(), axis.text.y = element_blank())
+dev.off()
+
+# Faceted plot for Superior
+pdf(fig_dir("SiteDatesPlot-orderwithinSup.pdf"), width=6.5, height=4.5)
+qplot(X_COORD, Y_COORD, geom="point", data=t[t$year > 1994.5 & t$forest=="Superior" & is.na(t$X_COORD)==FALSE,], color=ordval, facets = ~year, size=I(3), main="Order of Sampling at Superior Forest", xlab="Longitude", ylab="Latitude") + scale_colour_gradient2(low="red3", mid="white", high="navy", name = "Sampling Order", breaks = c(-1.5, 1.5), labels = c("Earliest", "Latest")) + theme(panel.background = element_rect(fill='lightgoldenrod1'), axis.text.x = element_blank(), axis.text.y = element_blank())
+dev.off()
+
+# Unusual year 1995, 2008, 2010
