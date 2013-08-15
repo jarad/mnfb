@@ -79,7 +79,8 @@ siteyear = function(d) {
 
 sy = dlply(d2, "forest", siteyear)
 
-for(i in 1:length(sy)){ attr(sy[[i]],"name") <- names(sy)[i] }
+# Temporarily removing
+# for(i in 1:length(sy)){ attr(sy[[i]],"name") <- names(sy)[i] }
 
 
 site_image = function(x) {
