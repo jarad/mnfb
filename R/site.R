@@ -51,7 +51,7 @@ dev.off()
 # Sites 
 d2 = read.csv("data/site.csv")
 d2 = join(d2, d[,c("site","forest")], by = "site")
-d2 = d2[d2$forest %in% forest3,]
+d2 = d2[-which(is.na(d2$forest)),] # Why are there NA forests?
 
 f = ddply(d2, "site", summarise, number=length(year), forest=unique(forest))
 #ggplot(na.omit(f), aes(x=number))+geom_histogram(binwidth=1)+facet_wrap(~forest)
@@ -79,8 +79,7 @@ siteyear = function(d) {
 
 sy = dlply(d2, "forest", siteyear)
 
-# Temporarily removing
-# for(i in 1:length(sy)){ attr(sy[[i]],"name") <- names(sy)[i] }
+for(i in 1:length(sy)){ attr(sy[[i]],"name") <- names(sy)[i] }
 
 
 site_image = function(x) {
