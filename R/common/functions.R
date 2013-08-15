@@ -108,3 +108,30 @@ myTryCatch = function(species, fornum, nms, ...) {
              # cleanup-code
            })
 }
+
+
+# Extract julian date from the "data/site.csv" date field
+# Input: site.csv or derivatives therefrom with a field named "date" formatted as an MS Access date
+# Output: a vector 'jd'
+# Requires the 'lubridate' package
+
+jdate <- function(df) {
+  require(lubridate)
+  POSIXdate <- as.POSIXct(as.character(df$date), format = "%m/%d/%Y %H:%M:%S")
+  jan1 <- as.Date(paste("1/1/", year(POSIXdate), sep=""), format = "%m/%d/%Y")
+  jd <- as.numeric(floor(difftime(POSIXdate, jan1, units = "days"))) + 1
+  return(jd)
+}
+
+
+# Extract a numeric time (in decimal hours) from the "data/site.csv" time field
+# Input: site.csv or derivatives therefrom with a field named "time" formatted as an MS Access date
+# Output: a vector 'time'
+# Requires the 'lubridate' package
+
+timehr <- function(df) {
+  require(lubridate)
+  POSIXtime <- as.POSIXct(as.character(df$time), format = "%m/%d/%Y %H:%M:%S")
+  time <- hour(POSIXtime) + minute(POSIXtime)/60  
+}
+
