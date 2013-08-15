@@ -32,7 +32,8 @@ rm(dups)
 
 ############################
 # Number of sites per forest
-tab = xtable(as.data.frame(with(d, table(forest)), responseName="number of sites"),
+d$forest <- refactor_forests(d$forest)
+tab = xtable(as.data.frame(with(d, table(forest)), responseName="Number of Sites"),
              caption="Number of sites in each national forest",
              label="tab:number-of-sites-in-forest")
 print(tab, file=tab_dir("site-number-per-forest.tex"), include.rownames=FALSE)
