@@ -13,9 +13,7 @@ d.loc <- read.csv("data/location.csv")
 d.site <- read.csv("data/site.csv")
 
 # Calculate Julian Dates
-POSIXdate <- as.POSIXct(as.character(d.site$date), format = "%m/%d/%Y %H:%M:%S")
-jan1 <- as.Date(paste("1/1/", year(POSIXdate), sep=""), format = "%m/%d/%Y")
-d.site$jd <- as.numeric(floor(difftime(POSIXdate, jan1, units = "days"))) + 1
+d.site$jd <- jdate(d.site)
 
 # Join location and observation data
 t <- join(d.site, d.loc, by = "site")

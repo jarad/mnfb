@@ -37,13 +37,8 @@ loaddata <- function(species, forest.study){
   d.site <- d.site[d.site$site %in% d.loc$site & d.site$year > 1994.5,]
   d.site <- d.site[,c("site", "year", "date", "time", "obs", "temp", "wind", "sky", "noise", "fstype")]
   
-  # Convert date and time to numeric "jd" and "time"
-  POSIXdate <- as.POSIXct(as.character(d.site$date), format = "%m/%d/%Y %H:%M:%S")
-  jan1 <- as.Date(paste("1/1/", year(POSIXdate), sep=""), format = "%m/%d/%Y")
-  d.site$jd <- as.numeric(floor(difftime(POSIXdate, jan1, units = "days"))) + 1
-  
-  POSIXtime <- as.POSIXct(as.character(d.site$time), format = "%m/%d/%Y %H:%M:%S")
-  d.site$time <- hour(POSIXtime) + minute(POSIXtime)/60
+  d.site$jd <- jdate(d.site)
+  d.site$time <- timehr(d.site)
   
   # Bird counts by site & year for species of interest
   d.bird <- d.bird[d.bird$nrricode %in% nrri_code & d.bird$site %in% d.loc$site,]
