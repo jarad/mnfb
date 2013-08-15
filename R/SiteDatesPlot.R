@@ -17,10 +17,6 @@ POSIXdate <- as.POSIXct(as.character(d.site$date), format = "%m/%d/%Y %H:%M:%S")
 jan1 <- as.Date(paste("1/1/", year(POSIXdate), sep=""), format = "%m/%d/%Y")
 d.site$jd <- as.numeric(floor(difftime(POSIXdate, jan1, units = "days"))) + 1
 
-# Calculate Time
-POSIXtime <- as.POSIXct(as.character(d.site$time), format = "%m/%d/%Y %H:%M:%S")
-d.site$time <- hour(POSIXtime) + minute(POSIXtime)/60
-
 # Join location and observation data
 t <- join(d.site, d.loc, by = "site")
 t <- t[t$forest %in% c(9020, 9030, 9090),]
@@ -48,7 +44,7 @@ isol.obs <- c("Chequamegon 1995 140",
 isol.tab <- t[paste(t$forest, t$year, t$jd) %in% isol.obs,][,c("forest", "site", "year", "jd")]
 names(isol.tab) <- c("Forest", "Site", "Year", "Julian.Date")
 
-# This is the only way I can figure to have no decimal places in the output... feel free to improve this
+# This is the only way I can figure to have no decimal places in the output... feel free to improve upon this
 for(j in 2:4){
   isol.tab[,j] <- as.integer(isol.tab[,j])
 }
@@ -63,6 +59,8 @@ print(tab, file=tab_dir("SiteDatesPlot-isolated-observations.tex"), include.rown
 # Figures: Maps for each forest showing the order of site sampling by year
 
 # ordval: A variable to store the order in which sites are sampled for a specific forest-year
+# - by using rank(), we focus on the order and not the spacing of observations
+# - by using scale(), we guarantee that all years plot the same range of colors
 t$ordval <- NA
 for(j in c("Chequamegon", "Chippewa", "Superior")){
   for (i in 1:22){
@@ -84,5 +82,3 @@ dev.off()
 pdf(fig_dir("SiteDatesPlot-orderwithinSup.pdf"), width=6.5, height=4.5)
 qplot(X_COORD, Y_COORD, geom="point", data=t[t$year > 1994.5 & t$forest=="Superior" & is.na(t$X_COORD)==FALSE,], color=ordval, facets = ~year, size=I(3), main="Order of Sampling at Superior Forest", xlab="Longitude", ylab="Latitude") + scale_colour_gradient2(low="red3", mid="white", high="navy", name = "Sampling Order", breaks = c(-1.5, 1.5), labels = c("Earliest", "Latest")) + theme(panel.background = element_rect(fill='lightgoldenrod1'), axis.text.x = element_blank(), axis.text.y = element_blank())
 dev.off()
-
-# Unusual year 1995, 2008, 2010
