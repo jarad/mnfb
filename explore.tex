@@ -1,21 +1,24 @@
 \subsection{Sites}
 
-\input{tables/site-number-per-forest}
-
-\input{tables/site-duplicated}
-
-
-\begin{figure}
-\includegraphics{site-map}
-\caption{A map of the sites}
-\label{fig:site-map}
-\end{figure}
-
+Over the lifetime of the study (1991-2012), observers have surveyed 1429 sites grouped into 461 stands in the three study forests (Table \ref{tab:stands-sites-per-forest}).  As Figure \ref{fig:site-siteyear} demonstrates, most sites have been surveyed every year during that time, but many have been omitted for the occasional year or two.  Quite a few were discontinued around 1994-1995, and a significant number were introduced in Superior Forest in 2008.  It can also be seen from the veritical white bands in Figure \ref{fig:site-siteyear} that some years have unusually high missing counts, which presumably result from either weather or administrative causes.\par
+There are few indicators of anything amiss within the sites data.  75 sites do not have Lat-Lon coordinates (Table \ref{tab:site-duplicated}).  There is one set of bird counts in the Birds data table (24 species observed) that has no corresponding observation conditions in the Site data table.  Conversely, there are three site-years in the Site data table for which no birds of any species were counted in the Birds data table (Table \ref{tab:site-missing-data}).
 
 \begin{figure}
 \includegraphics{site-siteyear}
 \caption{For each forest, depicts whether a site was surveyed (black) or not (white).}
 \label{fig:site-siteyear}
+\end{figure}
+
+\input{tables/stands-sites-per-forest}
+
+\input{tables/site-duplicated}
+
+\input{tables/site-missing-data}
+
+\begin{figure}
+\includegraphics{site-map}
+\caption{A map of the sites}
+\label{fig:site-map}
 \end{figure}
 
 Figure \ref{fig:SiteDatesPlot-byForestbyYear} illustrates that the three forests are sampled in the same order every year.  As we will discuss later, this is one reason to model bird counts in each forest separately.  Otherwise, seasonal effects (julian dates) get confounded with location.
@@ -48,7 +51,7 @@ Figure \ref{fig:SiteDatesPlot-byForestbyYear} suggests that several observations
 \label{fig:SiteDatesPlot-orderwithinSup}
 \end{figure}
 
-In the same way that the sampling order of forests is the same every year, the sampling order of sites within a forest is also the same every year with a few exceptions (Figs. \ref{fig:SiteDatesPlot-orderwithinCheq}, \ref{fig:SiteDatesPlot-orderwithinChip}, and \ref{fig:SiteDatesPlot-orderwithinSup}).  Again, this causes seasonal effects (julian dates) to get confounded with location -- only, this time the location is at the site-stand level instead of at the forest level.
+In the same way that the sampling order of forests is the same every year, the sampling order of sites \textit{within} a forest is also the same every year with a few exceptions (Figs. \ref{fig:SiteDatesPlot-orderwithinCheq}, \ref{fig:SiteDatesPlot-orderwithinChip}, and \ref{fig:SiteDatesPlot-orderwithinSup}).  Again, this causes seasonal effects (julian dates) to get confounded with location -- only, this time the location is at the site-stand level instead of at the forest level.
 
 
 observations without sites
