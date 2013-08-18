@@ -7,11 +7,11 @@ library(ggplot2)
 
 source("R/common/functions.R")
 
-d = read.csv("data/location.csv")
-d$forest = factor(d$forest)
+d.loc = read.csv("data/location.csv")
+d.loc$forest = factor(d.loc$forest)
 
 # Only use Chequamegon, Chippewa, and Superior national forests
-d = d[d$forest %in% c(9020, 9030, 9090),]
+d = d.loc[d.loc$forest %in% c(9020, 9030, 9090),]
 
 ###########################
 # Checking for duplicate or missing locations
@@ -24,7 +24,7 @@ library(xtable)
 #             caption="Number of sites with duplicated or missing coordinates",
 #             label="tab:duplicated-sites")
 tab = xtable(data.frame("Number"=nrow(dups)), 
-            caption="Number of sites with duplicated or missing coordinates",
+            caption="Number of sites with duplicated or missing coordinates.  They turn out to all be missing.",
              label="tab:duplicated-sites")
 
 print(tab, file=tab_dir("site-duplicated.tex"), include.rownames=FALSE)
@@ -50,8 +50,8 @@ dev.off()
 ############################
 # Sites 
 d2 = read.csv("data/site.csv")
-d2 = join(d2, d[,c("site","forest")], by = "site")
-d2 = d2[-which(is.na(d2$forest)),] # Why are there NA forests?
+d2 = join(d2, d.loc[,c("site","forest")], by = "site")
+d2 = d2[d2$forest %in% c(9020, 9030, 9090),]
 
 f = ddply(d2, "site", summarise, number=length(year), forest=unique(forest))
 #ggplot(na.omit(f), aes(x=number))+geom_histogram(binwidth=1)+facet_wrap(~forest)
