@@ -15,7 +15,7 @@ d = d.loc[d.loc$forest %in% c(9020, 9030, 9090),]
 
 ###########################
 # Checking for duplicate or missing locations
-dups = d[which( duplicated(d$X) & duplicated(d$Y) ),]
+dups = d[which( duplicated(d$X) & duplicated(d$Y) ),]  # Why is this omitting Site 103, which does not have an (X,Y)?
 dups = dups[order(dups$forest, dups$site),]
 
 
@@ -25,7 +25,7 @@ library(xtable)
 #             label="tab:duplicated-sites")
 tab = xtable(data.frame("Number"=nrow(dups)), 
             caption="Number of sites with duplicated or missing coordinates.  They turn out to all be missing.",
-             label="tab:duplicated-sites")
+             label="tab:site-duplicated")
 
 print(tab, file=tab_dir("site-duplicated.tex"), include.rownames=FALSE)
 rm(dups)
@@ -33,10 +33,14 @@ rm(dups)
 ############################
 # Number of sites per forest
 d$forest <- refactor_forests(d$forest)
-tab = xtable(as.data.frame(with(d, table(forest)), responseName="Number of Sites"),
-             caption="Number of sites in each national forest",
-             label="tab:number-of-sites-in-forest")
-print(tab, file=tab_dir("site-number-per-forest.tex"), include.rownames=FALSE)
+
+stands.sites <- ddply(d, .(forest), summarize, stands = length(unique(standunique)), sites = length(unique(site)))
+names(stands.sites) <- c("Forest", "Stands", "Sites")
+
+tab = xtable(stands.sites,
+             caption="Total number of stands and sites in each national forest (1991-2012)",
+             label="tab:stands-sites-per-forest")
+print(tab, file=tab_dir("stands-sites-per-forest.tex"), include.rownames=FALSE)
 
 ############################
 # Make a map of the sites
@@ -45,7 +49,6 @@ library(ggplot2)
 pdf(fig_dir("site-map.pdf"), width=6, height=4)
 qplot(x=X_COORD, y=Y_COORD, data=d, color=forest)
 dev.off()
-
 
 ############################
 # Sites 
@@ -94,7 +97,26 @@ par(mfrow=c(1,3), mar=c(4,4,2,0)+.1)
 l_ply(sy, site_image)
 dev.off()
 
+############################
+# Counts without Observation Conditions and 
+# Site-Years with All-zero Counts
 
+d.bird <- read.csv("data/bird.csv")
+d.bird = join(d.bird, d.loc[,c("site","forest")], by = "site")
+d.bird = d.bird[d.bird$forest %in% c(9020, 9030, 9090),]
+
+nonzero.sites <- unique(paste(d.bird$site, d.bird$year))
+sites.wo.cond <- unique(paste(d2$site, d2$year)) 
+
+b <- c(nonzero.sites[!(nonzero.sites %in% sites.wo.cond)], sites.wo.cond[!(sites.wo.cond %in% nonzero.sites)])
+miss.dat <- data.frame(do.call('rbind', strsplit(as.character(b),' ',fixed=TRUE)))
+miss.dat[,3] <- c("Counts without observation conditions.", rep("Site-year without any birds counted.",3))
+colnames(miss.dat) <- c("Site", "Year", "Issue")
+
+tab = xtable(miss.dat,
+             caption="Counts without observation conditions and zero-count site-years",
+             label="tab:site-missing-data")
+print(tab, file=tab_dir("site-missing-data.tex"), include.rownames=FALSE)
 
 
 quit(ifelse(interactive(), "ask", "no"))
