@@ -26,7 +26,7 @@ Figure \ref{fig:SiteDatesPlot-byForestbyYear} illustrates that the three forests
 \label{fig:SiteDatesPlot-byForestbyYear}
 \end{figure}
 
-Figure \ref{fig:SiteDatesPlot-byForestbyYear} suggests that several observations in the site database table may be miscoded either for date (or perhaps for site).  For each of the following cases (Table \ref{tab:isolated-observations}), only 1 or 2 observations were recorded in a particular forest on the date listed, and no other observations were made in that forest within 2 days:
+Figure \ref{fig:SiteDatesPlot-byForestbyYear} suggests that several observations in the site database table may be miscoded for date (or perhaps for site).  For each of the following cases (Table \ref{tab:isolated-observations}), only 1 or 2 observations were recorded in a particular forest on the date listed, and no other observations were made in that forest within 2 days:
 
 \input{tables/SiteDatesPlot-isolated-observations}
 
@@ -51,8 +51,26 @@ Figure \ref{fig:SiteDatesPlot-byForestbyYear} suggests that several observations
 In the same way that the sampling order of forests is the same every year, the sampling order of sites within a forest is also the same every year with a few exceptions (Figs. \ref{fig:SiteDatesPlot-orderwithinCheq}, \ref{fig:SiteDatesPlot-orderwithinChip}, and \ref{fig:SiteDatesPlot-orderwithinSup}).  Again, this causes seasonal effects (julian dates) to get confounded with location -- only, this time the location is at the site-stand level instead of at the forest level.
 
 
+observations without sites
+sites with observations
+
+
 
 \subsection{Observers}
+
+THIS SECTION ON HOLD UNTIL OBSERVER ID RESOLVED
+
+Patterns in observer turnover influence the analysis of the dataset (Fig. \ref{fig:Observers-obsyear}).  In most years, from 5 to 8 observers collect bird counts.  However, 61\% of observers work for only one field season.  These one-season observers account for 35.8\% of all site observations; two-year observers account for an additional 23.0\% of all site observations (Table \ref{tab:field-seasons}).  [These summaries use data back to 1991; however, we are only attempting to model data from 1995 onward].
+
+\input{tables/Observers-field-seasons}
+
+In particular, these patterns affect two questions.  First, how well can we measure an observer effect separate from annual variation?  Because many observers only work one field season, the variation among observers is somewhat confounded with variation from year to year.  Second, how consistent is an observer's effect from year to year?  In particular, is there a first-year effect for observers?  Necessarily, the data from single-season observers cannot address these questions.
+
+\subsubsection{Potential Observer Anomalies}
+
+1 - Large gaps in service
+2 - Low-count years
+3 - Anything else fishy
 
 \begin{figure}
 \includegraphics{Observers-obsyear.pdf}
@@ -60,3 +78,40 @@ In the same way that the sampling order of forests is the same every year, the s
 \label{fig:Observers-obsyear}
 \end{figure}
 
+
+
+
+
+\subsection{Time}
+
+Time of Day
+- insignificance of sunrise (12 minutes)
+
+
+
+
+
+\subsection{Observation Conditions}
+
+Sky, Wind, Noise
+- quadratic annual trend in "noise"
+
+
+
+
+
+\subsection{Habitat}
+
+Habitat Structure
+- Variable selection
+  - lack of clarity
+    - which to use
+    - various definitions of 'regeneration'
+- Structure of variables
+- Change over time
+- Distribution by forest (is Superior weird?)
+- Stand homogeneity
+
+- modeling impact:
+  - nested random versus fixed
+  - imbalanced 'design'
