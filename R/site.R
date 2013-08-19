@@ -15,17 +15,17 @@ d = d.loc[d.loc$forest %in% c(9020, 9030, 9090),]
 
 ###########################
 # Checking for duplicate or missing locations
-dups = d[which( duplicated(d$X) & duplicated(d$Y) ),]  # Why is this omitting Site 103, which does not have an (X,Y)?
-dups = dups[order(dups$forest, dups$site),]
 
+d$xy <- paste(d$X_COORD, d$Y_COORD)
+xy <- length(d$xy[d$xy %in% d$xy[duplicated(d$xy)]])
+
+# dups = d[which( duplicated(d$X) & duplicated(d$Y) ),]
+# dups = dups[order(dups$forest, dups$site),]
 
 library(xtable)
-#tab = xtable(dups[,c("forest","site","X_COORD","Y_COORD")], 
-#             caption="Number of sites with duplicated or missing coordinates",
-#             label="tab:duplicated-sites")
-tab = xtable(data.frame("Number"=nrow(dups)), 
-            caption="Number of sites with duplicated or missing coordinates.  They turn out to all be missing.",
-             label="tab:site-duplicated")
+tab = xtable(data.frame("Number"=xy), 
+            caption="Number of sites with duplicated or missing coordinates.  They turn out all to be missing.",
+            label="tab:site-duplicated")
 
 print(tab, file=tab_dir("site-duplicated.tex"), include.rownames=FALSE)
 rm(dups)
