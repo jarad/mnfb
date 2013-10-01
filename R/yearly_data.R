@@ -61,8 +61,13 @@ colnames(gr) <- colnames(bird.tot)[1:3]
 aux <- merge(bird.tot,gr, all.y=T)
 aux[is.na(aux$count), 4:9] <- 0
 
-# put the species names and saving data
+# put the species
 bird.yeartotal <- merge(aux, sp.info[,1:2])
+
+# there is no data on forest=9020 for years 2011 or 2012
+bird.yeartotal <- subset(bird.yeartotal,!(forest==9020&year>2010)   )
+
+# saving data
 write.csv(bird.yeartotal, file='bird_yeartotal.csv', row.names=FALSE)
 
 
