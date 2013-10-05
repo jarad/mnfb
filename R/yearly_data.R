@@ -36,6 +36,20 @@ bird.tot <-ddply(bird.red, .(year,forest,nrricode),
 
 with(bird.tot, length(unique(nrricode))) # 73 species
 
+# Info for species with 0 counts is missing, for the 0 counts in all year
+# we can add 1 bird to work in logs later. 
+bird.tot$forest <- factor(bird.tot$forest)
+gr  <- expand.grid(unique(bird.tot$year),levels(bird.tot$forest), unique(bird.tot$nrricode))
+colnames(gr) <- colnames(bird.tot)[1:3]
+aux <- merge(bird.tot,gr, all.y=T)
+aux[is.na(aux$count), 4:7] <- 0
+aux$count.add <- aux$count
+cond <- aux$count==0
+aux$count.add[cond] <- 1 
+bird.tot <- aux
+
+
+
 # site information: there is one recor per site*year, so here is the total times each site is sampled
 site <- read.csv('site.csv', header=T)
 site2<- merge(site, forest)
@@ -44,28 +58,25 @@ with(site2, length(unique(site)))
 # get0 has the number of site sampled each year*forest, this is the denominator for the anual counts
 # to get the anual average. 
 get0 <- ddply(site2, .(year, forest),summarise, samples=length(obs) )
-
+get0 <- get0[ get0$forest %in% c(9020, 9030, 9090), ]
+get0$forest <- factor(get0$forest)
 
 # compute average count on each site*year
 bird.tot <- merge(bird.tot, get0)
 bird.tot$ave <- with(bird.tot, count/samples)
-bird.tot$forest <- factor(bird.tot$forest)
+bird.tot$forest <- as.numeric(as.character(bird.tot$forest))
 
 # cut the counts previous to 1995 
 bird.tot <- bird.tot[bird.tot$year > 1994, ]
 
-# There are some 0 counts missings 
-gr  <- expand.grid(unique(bird.tot$year),levels(bird.tot$forest), unique(bird.tot$nrricode))
-colnames(gr) <- colnames(bird.tot)[1:3]
+# put the species and  forest names, 
+# Chequamegon=9020,Chippewa=9030, Superior=9090
+bird.yeartotal <- merge(bird.tot, sp.info[,1:2])
 
-aux <- merge(bird.tot,gr, all.y=T)
-aux[is.na(aux$count), 4:9] <- 0
+bird.yeartotal$forestN <- factor(bird.yeartotal$forest)
+levels(bird.yeartotal$forestN) = c('Chequamegon','Chippewa','Superior') 
+#with(bird.yeartotal, table(forestN,forest))
 
-# put the species
-bird.yeartotal <- merge(aux, sp.info[,1:2])
-
-# there is no data on forest=9020 for years 2011 or 2012
-bird.yeartotal <- subset(bird.yeartotal,!(forest==9020&year>2010)   )
 
 # saving data
 write.csv(bird.yeartotal, file='bird_yeartotal.csv', row.names=FALSE)
